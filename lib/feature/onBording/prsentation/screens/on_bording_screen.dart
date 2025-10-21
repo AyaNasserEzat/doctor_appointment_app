@@ -16,24 +16,31 @@ class OnBordingScreen extends StatelessWidget {
       child: Scaffold(
         body: SingleChildScrollView(
           child: Padding(
-            padding: EdgeInsets.only(top: 30, bottom: 30),
+            padding: EdgeInsets.only(top: 30, bottom: 15),
             child: Column(
               children: [
                 LogoAndAppName(),
-                SizedBox(height: 32,),
+                SizedBox(height: 32),
                 DoctorImageAndText(),
-                Text(
-                  AppStrings.onBordingTSubitle,
-                  textAlign: TextAlign.center,
-                  style: AppTextStyles.interRegular12,
-                ),
-                SizedBox(height: 32,),
-          
-                Button(
-                  text: AppStrings.getStarted,
-                  onPressed: () {
-                    context.pushNamed(Routes.loginScreen);
-                  },
+
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 15.0),
+                  child: Column(
+                    children: [
+                      Text(
+                        AppStrings.onBordingTSubitle,
+                        textAlign: TextAlign.center,
+                        style: AppTextStyles.interRegular12,
+                      ),
+                      SizedBox(height: 32),
+                      Button(
+                        text: AppStrings.getStarted,
+                        onPressed: () {
+                          context.pushNamed(Routes.loginScreen);
+                        },
+                      ),
+                    ],
+                  ),
                 ),
               ],
             ),
