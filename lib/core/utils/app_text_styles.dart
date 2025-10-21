@@ -1,3 +1,4 @@
+import 'package:doctor_appointment/core/utils/app_colors.dart';
 import 'package:flutter/material.dart';
 
 class AppTextStyles {
@@ -9,6 +10,7 @@ class AppTextStyles {
 
   static const TextStyle interBold32 = TextStyle(
     fontFamily: 'Inter',
+    color: AppColors.blue,
     fontWeight: FontWeight.w700,
     fontSize: 32,
   );
@@ -39,6 +41,7 @@ class AppTextStyles {
 
   static const TextStyle interRegular12 = TextStyle(
     fontFamily: 'Inter',
+    color: AppColors.textgrey,
     fontWeight: FontWeight.w400,
     fontSize: 12,
   );
@@ -107,6 +110,12 @@ class AppTextStyles {
     fontFamily: 'Inter',
     fontWeight: FontWeight.w700,
     fontSize: 24,
+  );
+   static const TextStyle interBoldWhite20 = TextStyle(
+    fontFamily: 'Inter',
+    color: AppColors.white,
+    fontWeight: FontWeight.w700,
+    fontSize: 20,
   );
 
   static const TextStyle interMedium20 = TextStyle(
