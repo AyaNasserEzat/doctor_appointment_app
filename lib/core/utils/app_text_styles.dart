@@ -48,8 +48,15 @@ class AppTextStyles {
 
   static const TextStyle interRegular14 = TextStyle(
     fontFamily: 'Inter',
+    color: AppColors.textgrey,
     fontWeight: FontWeight.w400,
     fontSize: 14,
+  );
+   static const TextStyle interRegular16 = TextStyle(
+    fontFamily: 'Inter',
+    color: AppColors.black,
+    fontWeight: FontWeight.w400,
+    fontSize: 16,
   );
 
   static const TextStyle interMedium12 = TextStyle(
@@ -60,6 +67,7 @@ class AppTextStyles {
 
   static const TextStyle interMedium14 = TextStyle(
     fontFamily: 'Inter',
+    color: AppColors.textMuted,
     fontWeight: FontWeight.w500,
     fontSize: 14,
   );
@@ -73,11 +81,13 @@ class AppTextStyles {
   static const TextStyle interBold14 = TextStyle(
     fontFamily: 'Inter',
     fontWeight: FontWeight.w700,
-    fontSize: 14,
+    color: AppColors.black,
+    fontSize: 13,
   );
 
   static const TextStyle interBold16 = TextStyle(
     fontFamily: 'Inter',
+    color: AppColors.black,
     fontWeight: FontWeight.w700,
     fontSize: 16,
   );
@@ -85,17 +95,20 @@ class AppTextStyles {
   static const TextStyle interMedium16 = TextStyle(
     fontFamily: 'Inter',
     fontWeight: FontWeight.w500,
+    color: AppColors.textMuted,
     fontSize: 16,
   );
 
   static const TextStyle interBold18 = TextStyle(
     fontFamily: 'Inter',
+    color: AppColors.blue,
     fontWeight: FontWeight.w700,
     fontSize: 18,
   );
 
   static const TextStyle interMedium18 = TextStyle(
     fontFamily: 'Inter',
+    color: AppColors.textMuted,
     fontWeight: FontWeight.w500,
     fontSize: 18,
   );
@@ -120,6 +133,7 @@ class AppTextStyles {
 
   static const TextStyle interMedium20 = TextStyle(
     fontFamily: 'Inter',
+    color: AppColors.textMuted,
     fontWeight: FontWeight.w500,
     fontSize: 20,
   );
@@ -133,11 +147,13 @@ class AppTextStyles {
   static const TextStyle interSemiBold14 = TextStyle(
     fontFamily: 'Inter',
     fontWeight: FontWeight.w600,
+    color: AppColors.textMuted,
     fontSize: 14,
   );
 
   static const TextStyle interSemiBold16 = TextStyle(
     fontFamily: 'Inter',
+    color: AppColors.textMuted,
     fontWeight: FontWeight.w600,
     fontSize: 16,
   );

@@ -36,7 +36,8 @@ class AppColors {
 
   //  Neutrals (UI & Borders)
   static const Color border = Color(0xFFD0D5DD);
-  static const Color divider = Color(0xFFEAECF0);
+  static const Color divider = Color(0xFFE0E0E0);
+  static const Color textfieldfillColor = Color(0xffFDFDFF);
   static const Color card = Color(0xFFF2F4F7);
   static const Color shadow = Color(0xFFB2B2B2);
 }
