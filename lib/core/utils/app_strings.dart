@@ -19,6 +19,7 @@ class AppStrings {
   static const String aleardyHaveAnAccount = "Already have an account yet?";
   static const String signUp = "Sign Up";
   static const String createAccount = "Create Account";
+  static const String yourNumber = "your number";
   static const String sinUpSubTitle =
       "Sign up now and start exploring all that our app has to offer. We're excited to welcome you to our community!";
 

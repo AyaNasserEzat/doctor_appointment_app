@@ -1,6 +1,7 @@
 import 'package:doctor_appointment/core/routing/routes.dart';
 import 'package:doctor_appointment/feature/login/prsentation/screens/login_screen.dart';
 import 'package:doctor_appointment/feature/onBording/prsentation/screens/on_bording_screen.dart';
+import 'package:doctor_appointment/feature/signUp/presentation/screens/sign_up_screen.dart';
 import 'package:flutter/material.dart';
 
 class AppRouter {
@@ -10,6 +11,8 @@ class AppRouter {
         return MaterialPageRoute(builder: (_) => OnBordingScreen());
       case Routes.loginScreen:
         return MaterialPageRoute(builder: (_) => LoginScreen());
+      case Routes.signUpScreen:
+        return MaterialPageRoute(builder: (_) => SignUpScreen());
       default:
         return null;
     }

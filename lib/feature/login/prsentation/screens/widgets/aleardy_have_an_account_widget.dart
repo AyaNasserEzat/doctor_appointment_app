@@ -1,3 +1,5 @@
+import 'package:doctor_appointment/core/helper/extension.dart';
+import 'package:doctor_appointment/core/routing/routes.dart';
 import 'package:doctor_appointment/core/utils/app_strings.dart';
 import 'package:doctor_appointment/core/utils/app_text_styles.dart';
 import 'package:flutter/gestures.dart';
@@ -18,7 +20,9 @@ class AleardyHaveAnAccountWidget extends StatelessWidget {
             TextSpan(
               text: ' ${AppStrings.signUp}',
               style: AppTextStyles.interBold18,
-              recognizer: TapGestureRecognizer()..onTap = () {},
+              recognizer: TapGestureRecognizer()..onTap = () {
+                context.pushNamed(Routes.signUpScreen);
+              },
             ),
           ],
         ),
