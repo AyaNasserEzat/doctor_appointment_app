@@ -1,3 +1,4 @@
+import 'package:doctor_appointment/core/helper/app_regex.dart';
 import 'package:doctor_appointment/core/utils/app_strings.dart';
 import 'package:doctor_appointment/core/widgets/button.dart';
 import 'package:doctor_appointment/core/widgets/custom_text_form_field.dart';
@@ -12,29 +13,44 @@ class LoginForm extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final cubit = context.read<LoginCubit>();
-    return Column(
-      children: [
-        CustomTextFormField(
-          controller: cubit.emailController,
-          hintText: AppStrings.email,
-          validator: (p0) => null,
-        ),
-        SizedBox(height: 16),
-        CustomTextFormField(
-          controller: cubit.passwordController,
-          hintText: AppStrings.password,
-          isObscureText: true,
-          validator: (p0) => null,
-        ),
-        SizedBox(height: 32),
-        Button(
-          text: AppStrings.login,
-          onPressed: () {
-            cubit.emitLoginState();
-          },
-        ),
-        LoginBlocListener(),
-      ],
+    return Form(
+      key: context.read<LoginCubit>().formKey,
+      child: Column(
+        children: [
+          CustomTextFormField(
+            controller: cubit.emailController,
+            hintText: AppStrings.email,
+            validator: (value) {
+              if (value == null ||
+                  value.isEmpty ||
+                  !AppRegex.isEmailValid(value)) {
+                return 'Please enter a valid email';
+              }
+            },
+          ),
+          SizedBox(height: 16),
+          CustomTextFormField(
+            controller: cubit.passwordController,
+            hintText: AppStrings.password,
+            isObscureText: true,
+            validator: (value) {
+              if (value == null || value.isEmpty) {
+                return 'Please enter a valid Password';
+              }
+            },
+          ),
+          SizedBox(height: 32),
+          Button(
+            text: AppStrings.login,
+            onPressed: () {
+              if (cubit.formKey.currentState!.validate()) {
+                cubit.emitLoginState();
+              }
+            },
+          ),
+          LoginBlocListener(),
+        ],
+      ),
     );
   }
 }
