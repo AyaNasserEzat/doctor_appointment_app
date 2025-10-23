@@ -1,29 +1,36 @@
-import 'package:doctor_appointment/core/helper/extension.dart';
-import 'package:doctor_appointment/core/routing/routes.dart';
 import 'package:doctor_appointment/core/utils/app_strings.dart';
 import 'package:doctor_appointment/core/widgets/button.dart';
 import 'package:doctor_appointment/core/widgets/custom_text_form_field.dart';
+import 'package:doctor_appointment/feature/login/prsentation/logic/cubit/login_cubit.dart';
+import 'package:doctor_appointment/feature/login/prsentation/screens/widgets/login_bloc_listner.dart';
 import 'package:flutter/widgets.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class LoginForm extends StatelessWidget {
-  const LoginForm({
-    super.key,
-  });
+  const LoginForm({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final cubit = context.read<LoginCubit>();
     return Column(
       children: [
-        CustomTextFormField(hintText: AppStrings.email),
+        CustomTextFormField(
+          controller: cubit.emailController,
+          hintText: AppStrings.email,
+        ),
         SizedBox(height: 16),
-        CustomTextFormField(hintText: AppStrings.password),
+        CustomTextFormField(
+          controller: cubit.passwordController,
+          hintText: AppStrings.password,
+        ),
         SizedBox(height: 32),
         Button(
           text: AppStrings.login,
           onPressed: () {
-            context.pushNamed(Routes.loginScreen);
+            cubit.emitLoginState();
           },
         ),
+        LoginBlocListener()
       ],
     );
   }

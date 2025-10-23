@@ -8,28 +8,30 @@ class AgreeTermsAndCondtionWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return RichText(
-      textAlign: TextAlign.center,
-      text: TextSpan(
-        text: AppStrings.agreeTerms,
-        style: AppTextStyles.interMedium14,
-        children: [
-          TextSpan(
-            text: ' ${AppStrings.termsAndCondition}',
-            style: AppTextStyles.interBold14,
-            recognizer: TapGestureRecognizer()..onTap = () {},
-          ),
-          TextSpan(
-            text: ' ${AppStrings.and}',
-            style: AppTextStyles.interMedium14,
-            recognizer: TapGestureRecognizer()..onTap = () {},
-          ),
-          TextSpan(
-            text: ' ${AppStrings.privacyPolicy}',
-            style: AppTextStyles.interBold14,
-            recognizer: TapGestureRecognizer()..onTap = () {},
-          ),
-        ],
+    return Center(
+      child: RichText(
+        textAlign: TextAlign.center,
+        text: TextSpan(
+          text: AppStrings.agreeTerms,
+          style: AppTextStyles.interMedium14,
+          children: [
+            TextSpan(
+              text: ' ${AppStrings.termsAndCondition}',
+              style: AppTextStyles.interBold14,
+              recognizer: TapGestureRecognizer()..onTap = () {},
+            ),
+            TextSpan(
+              text: ' ${AppStrings.and}',
+              style: AppTextStyles.interMedium14.copyWith(height: 1.5),
+              recognizer: TapGestureRecognizer()..onTap = () {},
+            ),
+            TextSpan(
+              text: ' ${AppStrings.privacyPolicy}',
+              style: AppTextStyles.interBold14,
+              recognizer: TapGestureRecognizer()..onTap = () {},
+            ),
+          ],
+        ),
       ),
     );
   }

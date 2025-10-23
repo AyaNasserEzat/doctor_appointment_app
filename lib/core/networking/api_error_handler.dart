@@ -13,6 +13,8 @@ class ApiErrorHandler {
 
         case DioExceptionType.receiveTimeout:
           return ApiErrorModel(message: 'Receive timeout with ApiServer');
+        case DioExceptionType.connectionError:
+          return ApiErrorModel(message: 'No Internet Connection');
 
         case DioExceptionType.badResponse:
           return _handelError(error.response?.data);
@@ -21,7 +23,7 @@ class ApiErrorHandler {
 
         case DioExceptionType.unknown:
           if (error.message!.contains('SocketException')) {
-            return ApiErrorModel(message: 'No Internet Connection');
+            return ApiErrorModel(message: 'network layer.');
           }
           return ApiErrorModel(message: 'Unexpected Error, Please try again!');
         default:
