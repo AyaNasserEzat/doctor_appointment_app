@@ -41,5 +41,6 @@ ApiErrorModel _handelError(dynamic data) {
   return ApiErrorModel(
     message: data['message'] ?? "unknown error occurred",
     code: data['code'],
+    errors: data['data']
   );
 }

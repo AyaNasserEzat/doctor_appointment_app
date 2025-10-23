@@ -1,4 +1,5 @@
 import 'package:doctor_appointment/core/helper/extension.dart';
+import 'package:doctor_appointment/core/networking/api_error_model.dart';
 import 'package:doctor_appointment/core/routing/routes.dart';
 import 'package:doctor_appointment/core/utils/app_colors.dart';
 import 'package:doctor_appointment/core/utils/app_text_styles.dart';
@@ -15,10 +16,12 @@ class LoginBlocListener extends StatelessWidget {
     return BlocListener<LoginCubit, LoginState>(
       listenWhen:
           (previous, current) =>
-              current is Loading || current is Success || current is Error,
+              current is LoginLoading ||
+              current is LoginSuccess ||
+              current is LoginError,
       listener: (context, state) {
         state.whenOrNull(
-          loading: () {
+          loginLoading: () {
             showDialog(
               context: context,
               builder:
@@ -27,12 +30,12 @@ class LoginBlocListener extends StatelessWidget {
                   ),
             );
           },
-          success: (loginResponse) {
+          loginSuccess: (loginResponse) {
             context.pop();
             context.pushNamed(Routes.homeScreen);
           },
-          error: (error) {
-            showErrorDialog(context, error);
+          loginError: (apiErrorModel) {
+            showErrorDialog(context, apiErrorModel);
           },
         );
       },
@@ -40,19 +43,22 @@ class LoginBlocListener extends StatelessWidget {
     );
   }
 
-  void showErrorDialog(BuildContext context, String error) {
+  void showErrorDialog(BuildContext context, ApiErrorModel apiErroeModel) {
     showDialog(
       context: context,
       builder:
           (context) => AlertDialog(
             icon: const Icon(Icons.error, color: Colors.red, size: 32),
-            content: Text(error, style: AppTextStyles.interMedium14),
+            content: Text(
+              apiErroeModel.getAllErrorMessages(),
+              style: AppTextStyles.interBold14,
+            ),
             actions: [
               TextButton(
                 onPressed: () {
                   context.pop();
                 },
-                child: Text('Got it', style: AppTextStyles.interMedium14),
+                child: Text('Got it', style: AppTextStyles.interBold14),
               ),
             ],
           ),
