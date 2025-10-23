@@ -1,5 +1,6 @@
 import 'package:doctor_appointment/core/di/depensency_injection.dart';
 import 'package:doctor_appointment/core/routing/routes.dart';
+import 'package:doctor_appointment/feature/home/presentation/screens/home_screen.dart';
 import 'package:doctor_appointment/feature/login/prsentation/logic/cubit/login_cubit.dart';
 import 'package:doctor_appointment/feature/login/prsentation/screens/login_screen.dart';
 import 'package:doctor_appointment/feature/onBording/prsentation/screens/on_bording_screen.dart';
@@ -22,6 +23,8 @@ class AppRouter {
         );
       case Routes.signUpScreen:
         return MaterialPageRoute(builder: (_) => SignUpScreen());
+      case Routes.homeScreen:
+        return MaterialPageRoute(builder: (_) => HomeScreen());
       default:
         return null;
     }
