@@ -7,17 +7,22 @@ import 'package:doctor_appointment/feature/signUp/presentation/screens/widgets/p
 import 'package:flutter/widgets.dart';
 
 class SignUpForm extends StatelessWidget {
-  const SignUpForm({
-    super.key,
-  });
+  const SignUpForm({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
-        CustomTextFormField(hintText: AppStrings.email),
+        CustomTextFormField(
+          hintText: AppStrings.email,
+          validator: (p0) => null,
+        ),
         SizedBox(height: 16),
-        CustomTextFormField(hintText: AppStrings.password),
+        CustomTextFormField(
+          hintText: AppStrings.password,
+          isObscureText: true,
+          validator: (p0) => null,
+        ),
         SizedBox(height: 16),
         PhoneTextFormField(hintText: AppStrings.yourNumber),
         SizedBox(height: 20),

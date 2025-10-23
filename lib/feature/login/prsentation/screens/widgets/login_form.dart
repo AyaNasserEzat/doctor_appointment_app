@@ -17,11 +17,14 @@ class LoginForm extends StatelessWidget {
         CustomTextFormField(
           controller: cubit.emailController,
           hintText: AppStrings.email,
+          validator: (p0) => null,
         ),
         SizedBox(height: 16),
         CustomTextFormField(
           controller: cubit.passwordController,
           hintText: AppStrings.password,
+          isObscureText: true,
+          validator: (p0) => null,
         ),
         SizedBox(height: 32),
         Button(
@@ -30,7 +33,7 @@ class LoginForm extends StatelessWidget {
             cubit.emitLoginState();
           },
         ),
-        LoginBlocListener()
+        LoginBlocListener(),
       ],
     );
   }
