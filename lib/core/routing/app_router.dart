@@ -1,8 +1,11 @@
+import 'package:doctor_appointment/core/di/depensency_injection.dart';
 import 'package:doctor_appointment/core/routing/routes.dart';
+import 'package:doctor_appointment/feature/login/prsentation/logic/cubit/login_cubit.dart';
 import 'package:doctor_appointment/feature/login/prsentation/screens/login_screen.dart';
 import 'package:doctor_appointment/feature/onBording/prsentation/screens/on_bording_screen.dart';
 import 'package:doctor_appointment/feature/signUp/presentation/screens/sign_up_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class AppRouter {
   static Route? generateRout(RouteSettings settings) {
@@ -10,7 +13,13 @@ class AppRouter {
       case Routes.onBoardingScreen:
         return MaterialPageRoute(builder: (_) => OnBordingScreen());
       case Routes.loginScreen:
-        return MaterialPageRoute(builder: (_) => LoginScreen());
+        return MaterialPageRoute(
+          builder:
+              (_) => BlocProvider(
+                create: (context) => getIt<LoginCubit>(),
+                child: LoginScreen(),
+              ),
+        );
       case Routes.signUpScreen:
         return MaterialPageRoute(builder: (_) => SignUpScreen());
       default:
