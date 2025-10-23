@@ -14,7 +14,7 @@ class LoginForm extends StatelessWidget {
   Widget build(BuildContext context) {
     final cubit = context.read<LoginCubit>();
     return Form(
-      key: context.read<LoginCubit>().formKey,
+      key: cubit.formKey,
       child: Column(
         children: [
           CustomTextFormField(
