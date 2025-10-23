@@ -22,7 +22,10 @@ class SignUpScreen extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               spacing: 5,
               children: [
-                Text(AppStrings.createAccount, style: AppTextStyles.interBold32),
+                Text(
+                  AppStrings.createAccount,
+                  style: AppTextStyles.interBold32,
+                ),
                 SizedBox(height: 5),
                 Text(
                   AppStrings.sinUpSubTitle,
@@ -30,14 +33,14 @@ class SignUpScreen extends StatelessWidget {
                 ),
                 SizedBox(height: 16),
                 SignUpForm(),
-                SizedBox(height: 16),
-                OrSignInWithRow(),
-                SizedBox(height: 16),
-                SignInWithGoogleWidget(),
+                // SizedBox(height: 16),
+                // OrSignInWithRow(),
+                // SizedBox(height: 16),
+                // SignInWithGoogleWidget(),
                 SizedBox(height: 16),
                 AgreeTermsAndCondtionWidget(),
                 SizedBox(height: 30),
-                AleardyHaveAnAccountWidget()
+                AleardyHaveAnAccountWidget(),
               ],
             ),
           ),

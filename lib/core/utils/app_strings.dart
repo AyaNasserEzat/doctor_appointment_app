@@ -10,7 +10,9 @@ class AppStrings {
   static const String loginSubTitle =
       "We're excited to have you back, can't wait to see what you've been up to since you last logged in.";
   static const String email = "Email";
+  static const String name = "Name";
   static const String password = "Password";
+  static const String passwordConfirmation = "Password Confirmation";
   static const String orSignWith = "Or sign in with";
   static const String agreeTerms = "By logging, you agree to our";
   static const String termsAndCondition = "Terms & Conditions";
