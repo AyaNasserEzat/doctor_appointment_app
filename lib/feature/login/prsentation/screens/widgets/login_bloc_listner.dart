@@ -44,6 +44,7 @@ class LoginBlocListener extends StatelessWidget {
   }
 
   void showErrorDialog(BuildContext context, ApiErrorModel apiErroeModel) {
+    context.pop();
     showDialog(
       context: context,
       builder:
