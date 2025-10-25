@@ -19,7 +19,9 @@ class AppStrings {
   static const String and = "and";
   static const String privacyPolicy = "PrivacyPolicy";
   static const String aleardyHaveAnAccount = "Already have an account yet?";
+  static const String dontHaveAnAccount = "Don\'t have an account yet?";
   static const String signUp = "Sign Up";
+  static const String signIn = "Sign In";
   static const String createAccount = "Create Account";
   static const String yourNumber = "your number";
   static const String sinUpSubTitle =

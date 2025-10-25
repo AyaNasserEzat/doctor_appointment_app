@@ -1,7 +1,7 @@
 import 'package:doctor_appointment/core/utils/app_strings.dart';
 import 'package:doctor_appointment/core/utils/app_text_styles.dart';
 import 'package:doctor_appointment/feature/login/prsentation/screens/widgets/agree_terms_and_condition.dart';
-import 'package:doctor_appointment/feature/login/prsentation/screens/widgets/aleardy_have_an_account_widget.dart';
+import 'package:doctor_appointment/feature/signUp/presentation/screens/widgets/already_have_an_account_widget.dart';
 import 'package:doctor_appointment/feature/signUp/presentation/screens/widgets/sign_up_form.dart';
 import 'package:flutter/material.dart';
 
@@ -37,7 +37,7 @@ class SignUpScreen extends StatelessWidget {
                 SizedBox(height: 16),
                 AgreeTermsAndCondtionWidget(),
                 SizedBox(height: 30),
-                AleardyHaveAnAccountWidget(),
+                DontHaveAnAccountWidget(),
               ],
             ),
           ),

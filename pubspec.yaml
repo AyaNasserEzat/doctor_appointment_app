@@ -60,6 +60,7 @@ dependencies:
   flutter_secure_storage: ^4.2.1
   # easy way to add shimmer effect
   shimmer: ^3.0.0
+
   
   
   
