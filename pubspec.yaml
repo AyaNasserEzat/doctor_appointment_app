@@ -57,7 +57,7 @@ dependencies:
   # reading and writing simple key-value pairs
   shared_preferences: ^2.5.3
   # provides API to store data in secure storage.
-  flutter_secure_storage: ^4.2.1
+  #flutter_secure_storage: ^4.2.1
   # easy way to add shimmer effect
   shimmer: ^3.0.0
 
