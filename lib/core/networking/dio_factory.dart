@@ -1,4 +1,6 @@
 import 'package:dio/dio.dart';
+import 'package:doctor_appointment/core/helper/constant.dart';
+import 'package:doctor_appointment/core/helper/shared_pref_helper.dart';
 
 class DioFactory {
   /// private constructor as I don't want to allow creating an instance of this class
@@ -14,7 +16,7 @@ class DioFactory {
       dio!
         ..options.connectTimeout = timeOut
         ..options.receiveTimeout = timeOut;
-      //addDioHeaders();
+      addDioHeaders();
       addDioInterceptor();
       return dio!;
     } else {
@@ -25,8 +27,8 @@ class DioFactory {
   static void addDioHeaders() async {
     dio?.options.headers = {
       'Accept': 'application/json',
-      //'Authorization':
-        //  'Bearer ${await SharedPrefHelper.getSecuredString(SharedPrefKeys.userToken)}',
+      'Authorization':
+         'Bearer ${await SharedPrefHelper.getString(SharedPrefKeys.userToken)}',
     };
   }
 

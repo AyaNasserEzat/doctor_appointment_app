@@ -17,7 +17,7 @@ class ApiErrorHandler {
           return ApiErrorModel(message: 'No Internet Connection');
 
         case DioExceptionType.badResponse:
-          return _handelError(error.response?.data);
+          return _handelError(error.response);
         case DioExceptionType.cancel:
           return ApiErrorModel(message: 'Request to ApiServer was canceld');
 
@@ -37,10 +37,51 @@ class ApiErrorHandler {
   }
 }
 
-ApiErrorModel _handelError(dynamic data) {
+// ApiErrorModel _handelError(dynamic data) {
+//   return ApiErrorModel(
+//     message: data['message'] ?? "unknown error occurred",
+//     code: data['code'],
+//     errors: data['data']
+//   );
+// }
+ApiErrorModel _handelError(dynamic  response) {
+  if (response == null) {
+    return ApiErrorModel(message: "No response from server");
+  }
+
+  final statusCode = response.statusCode ?? 0;
+  final data = response.data;
+
+  String message = "Unknown error occurred";
+
+  if (data != null && data is Map<String, dynamic> && data['message'] != null) {
+    message = data['message'];
+  } else {
+    // Default messages based on status code
+    switch (statusCode) {
+      case 400:
+        message = "Bad Request";
+        break;
+      case 401:
+        message = "Unauthorized";
+        break;
+      case 403:
+        message = "Forbidden";
+        break;
+      case 404:
+        message = "Not Found";
+        break;
+      case 500:
+        message = "Internal Server Error";
+        break;
+      default:
+        message = "Received invalid status code: $statusCode";
+    }
+  }
+
   return ApiErrorModel(
-    message: data['message'] ?? "unknown error occurred",
-    code: data['code'],
-    errors: data['data']
+    message: message,
+    code: statusCode,
+    errors: data?['data'],
   );
 }

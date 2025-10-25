@@ -10,43 +10,46 @@ class SpecializationCategories extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<HomeCubit, HomeState>(
-      builder: (context, state) {
-        return state.maybeWhen(
-          specializationsError: (apiErroeModel) => Text(apiErroeModel.message??"error"),
-          orElse: () => SizedBox.shrink(),
-          specializationsLoading: () => CircularProgressIndicator(),
-          specializationsSuccess: (specializationDataList) {
-            return SizedBox(
-              height: 100,
-              child: ListView.builder(
-                itemCount: 10,
-                scrollDirection: Axis.horizontal,
-                itemBuilder: (context, index) {
-                  return Padding(
-                    padding: const EdgeInsets.only(right: 20.0),
-                    child: Column(
-                      spacing: 10,
-                      children: [
-                        CircleAvatar(
-                          radius: 35,
-                          backgroundColor: Color(0xffF4F8FF),
-                          child: Image.asset(
-                            AppImages.category,
-                            height: 60,
-                            width: 60,
-                          ),
-                        ),
-                        Text(specializationDataList![index]!.name??"Genral"),
-                      ],
+    return 
+  BlocBuilder<HomeCubit, HomeState>(
+  builder: (context, state) {
+    return state.maybeWhen(
+      specializationsLoading: () => CircularProgressIndicator(),
+      specializationsError: (apiErrorModel) => Text(apiErrorModel.message ?? "error"),
+      specializationsSuccess: (specializationDataList) {
+        return SizedBox(
+          height: 100,
+          child: ListView.builder(
+            itemCount: specializationDataList!.length,
+            scrollDirection: Axis.horizontal,
+            itemBuilder: (context, index) {
+              final specialization = specializationDataList[index];
+              return Padding(
+                padding: const EdgeInsets.only(right: 20.0),
+                child: Column(
+                  children: [
+                    CircleAvatar(
+                      radius: 35,
+                      backgroundColor: Color(0xffF4F8FF),
+                      child: Image.asset(
+                        AppImages.category,
+                        height: 60,
+                        width: 60,
+                      ),
                     ),
-                  );
-                },
-              ),
-            );
-          },
+                    SizedBox(height: 10),
+                    Text(specialization!.name ?? "General"),
+                  ],
+                ),
+              );
+            },
+          ),
         );
       },
+      orElse: () => SizedBox.shrink(),
     );
+  },
+);
+  
   }
 }
