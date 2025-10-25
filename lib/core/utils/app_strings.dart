@@ -26,4 +26,11 @@ class AppStrings {
       "Sign up now and start exploring all that our app has to offer. We're excited to welcome you to our community!";
 
   static const String signInWithGoogle = "Sign In With Google";
+  //home
+  static const String howAreYou = "How Are You Today?";
+  static const String seeAll = "See All";
+  static const String blueContainerText =
+      "Book and schedule with nearest doctor";
+  static const String findNearBy = "Find Near By";
+  static const String doctorSpeciality = "Doctor Speciality";
 }

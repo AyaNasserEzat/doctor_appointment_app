@@ -2,9 +2,6 @@ import 'package:doctor_appointment/core/utils/app_strings.dart';
 import 'package:doctor_appointment/core/utils/app_text_styles.dart';
 import 'package:doctor_appointment/feature/login/prsentation/screens/widgets/agree_terms_and_condition.dart';
 import 'package:doctor_appointment/feature/login/prsentation/screens/widgets/aleardy_have_an_account_widget.dart';
-import 'package:doctor_appointment/feature/login/prsentation/screens/widgets/login_form.dart';
-import 'package:doctor_appointment/feature/login/prsentation/screens/widgets/or_sign_in_with.dart';
-import 'package:doctor_appointment/feature/login/prsentation/screens/widgets/sign_in_with_google_widget.dart';
 import 'package:doctor_appointment/feature/signUp/presentation/screens/widgets/sign_up_form.dart';
 import 'package:flutter/material.dart';
 

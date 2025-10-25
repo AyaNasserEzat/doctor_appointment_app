@@ -3,6 +3,7 @@ import 'package:doctor_appointment/core/utils/app_strings.dart';
 import 'package:doctor_appointment/core/widgets/button.dart';
 import 'package:doctor_appointment/core/widgets/custom_text_form_field.dart';
 import 'package:doctor_appointment/feature/signUp/presentation/logic/cubit/signup_cubit.dart';
+import 'package:doctor_appointment/feature/signUp/presentation/screens/widgets/sign_up_bloc_listener.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -39,6 +40,7 @@ class SignUpForm extends StatelessWidget {
           ),
           SizedBox(height: 16),
           CustomTextFormField(
+            controller: cubit.phoneController,
             hintText: AppStrings.yourNumber,
             validator: (value) {
               if (value == null ||
@@ -85,6 +87,7 @@ class SignUpForm extends StatelessWidget {
               }
             },
           ),
+          SignUpBlocListener(),
         ],
       ),
     );

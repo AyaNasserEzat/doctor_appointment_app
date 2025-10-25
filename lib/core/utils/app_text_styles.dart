@@ -67,7 +67,7 @@ class AppTextStyles {
 
   static const TextStyle interMedium14 = TextStyle(
     fontFamily: 'Inter',
-    color: AppColors.textMuted,
+    color: AppColors.textgrey,
     fontWeight: FontWeight.w500,
     fontSize: 14,
   );
@@ -105,6 +105,12 @@ class AppTextStyles {
     fontWeight: FontWeight.w700,
     fontSize: 18,
   );
+  static const TextStyle interBoldBlack18 = TextStyle(
+    fontFamily: 'Inter',
+    color: AppColors.black,
+    fontWeight: FontWeight.w700,
+    fontSize: 18,
+  );
 
   static const TextStyle interMedium18 = TextStyle(
     fontFamily: 'Inter',
@@ -121,7 +127,7 @@ class AppTextStyles {
 
   static const TextStyle interBold24 = TextStyle(
     fontFamily: 'Inter',
-    fontWeight: FontWeight.w700,
+    fontWeight: FontWeight.w900,
     fontSize: 24,
   );
    static const TextStyle interBoldWhite20 = TextStyle(
