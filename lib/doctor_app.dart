@@ -14,7 +14,7 @@ class DoctorApp extends StatelessWidget {
         scaffoldBackgroundColor: AppColors.white
       ),
       debugShowCheckedModeBanner: false,
-      initialRoute:isLoggedIn?Routes.homeScreen: Routes.onBoardingScreen,
+      initialRoute: Routes.onBoardingScreen,
       onGenerateRoute: AppRouter.generateRout,
     );
   }
