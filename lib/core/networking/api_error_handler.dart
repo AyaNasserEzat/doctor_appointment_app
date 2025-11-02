@@ -44,6 +44,7 @@ class ApiErrorHandler {
 //     errors: data['data']
 //   );
 // }
+
 ApiErrorModel _handelError(dynamic  response) {
   if (response == null) {
     return ApiErrorModel(message: "No response from server");
