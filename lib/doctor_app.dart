@@ -1,6 +1,7 @@
 import 'package:doctor_appointment/core/routing/app_router.dart';
 import 'package:doctor_appointment/core/routing/routes.dart';
 import 'package:doctor_appointment/core/utils/app_colors.dart';
+import 'package:doctor_appointment/main.dart';
 import 'package:flutter/material.dart';
 
 class DoctorApp extends StatelessWidget {
@@ -13,7 +14,7 @@ class DoctorApp extends StatelessWidget {
         scaffoldBackgroundColor: AppColors.white
       ),
       debugShowCheckedModeBanner: false,
-      initialRoute: Routes.onBoardingScreen,
+      initialRoute:isLoggedIn?Routes.homeScreen: Routes.onBoardingScreen,
       onGenerateRoute: AppRouter.generateRout,
     );
   }

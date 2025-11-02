@@ -1,6 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:doctor_appointment/core/helper/constant.dart';
 import 'package:doctor_appointment/core/helper/shared_pref_helper.dart';
+import 'package:doctor_appointment/core/networking/api_interceptore.dart';
 
 class DioFactory {
   /// private constructor as I don't want to allow creating an instance of this class
@@ -28,15 +29,12 @@ class DioFactory {
     dio?.options.headers = {
       'Accept': 'application/json',
       'Authorization':
-         'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczovL3ZjYXJlLmludGVncmF0aW9uMjUuY29tL2FwaS9hdXRoL2xvZ2luIiwiaWF0IjoxNzYxMzk1NDYwLCJleHAiOjE3NjE0ODE4NjAsIm5iZiI6MTc2MTM5NTQ2MCwianRpIjoiUmlaR0N5MmhPVHQ3NGZOdiIsInN1YiI6IjU1ODIiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.oH50SFpF-fKtQAPw59wqLKl-bNvwhxgGdH68n8q6q3U',
+          'Bearer ${await SharedPrefHelper.getSecuredString(SharedPrefKeys.userToken)}',
     };
   }
 
-  static void setTokenIntoHeaderAfterLogin(String token) {
-    dio?.options.headers = {'Authorization': 'Bearer $token'};
-  }
-
   static void addDioInterceptor() {
+    dio?.interceptors.add(ApiInterceptors());
     dio?.interceptors.add(
       LogInterceptor(
         requestBody: true,
