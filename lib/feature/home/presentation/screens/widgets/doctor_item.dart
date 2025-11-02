@@ -1,4 +1,3 @@
-import 'package:doctor_appointment/core/utils/app_colors.dart';
 import 'package:doctor_appointment/core/utils/app_images.dart';
 import 'package:doctor_appointment/core/utils/app_text_styles.dart';
 import 'package:doctor_appointment/feature/home/data/models/specialization_response.dart';
@@ -31,12 +30,11 @@ class DoctorItem extends StatelessWidget {
                 Row(
                   spacing: 4,
                   children: [
-                    Icon(Icons.star, color: AppColors.yellow),
                     Text(
                       doctorModel.appointPrice.toString(),
-                      style: AppTextStyles.interMedium14,
+                      style: AppTextStyles.interBold16,
                     ),
-                    Text("(4,279 reviews)", style: AppTextStyles.interMedium14),
+                    Text(r"$", style: AppTextStyles.interBold16),
                   ],
                 ),
               ],

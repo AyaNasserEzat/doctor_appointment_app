@@ -12,7 +12,7 @@ class DoctorsListView extends StatelessWidget {
       shrinkWrap: true,
       physics: const NeverScrollableScrollPhysics(),
       itemBuilder: (context, index) {
-        return DoctorItem(doctorModel: doctorsList[0]);
+        return DoctorItem(doctorModel: doctorsList[index]);
       },
     );
   }
