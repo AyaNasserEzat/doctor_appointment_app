@@ -13,4 +13,10 @@ class HomeState with _$HomeState {
   const factory HomeState.specializationsSuccess(List<SpecializationData?>? specializationDataList) = SpecializationsSuccess;
   const factory HomeState.specializationsError(ApiErrorModel apiErroeModel) =
       SpecializationsError;
+
+  //doctors
+  const factory HomeState.doctorsLoading() = DoctorsLoading;
+  const factory HomeState.doctorsSuccess(List<Doctor?>? doctors) = DoctorsSuccess;
+  const factory HomeState.doctorsError(ApiErrorModel apiErroeModel) =
+      DoctorsError;
 }

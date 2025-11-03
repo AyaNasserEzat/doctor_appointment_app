@@ -1,5 +1,4 @@
 import 'package:doctor_appointment/feature/home/presentation/screens/widgets/blue_container.dart';
-import 'package:doctor_appointment/feature/home/presentation/screens/widgets/doctors_list_view.dart';
 import 'package:doctor_appointment/feature/home/presentation/screens/widgets/home_top_bar.dart';
 import 'package:doctor_appointment/feature/home/presentation/screens/widgets/see_all_doctor_speciality_row.dart';
 import 'package:doctor_appointment/feature/home/presentation/screens/widgets/specialization_categories_bloc_builder.dart';
