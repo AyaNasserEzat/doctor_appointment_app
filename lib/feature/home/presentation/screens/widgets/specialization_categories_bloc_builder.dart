@@ -11,6 +11,11 @@ class SpecializationCategoriesBlocBuilder extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<HomeCubit, HomeState>(
+      buildWhen:
+          (previous, current) =>
+              current is SpecializationsLoading ||
+              current is SpecializationsError ||
+              current is SpecializationsSuccess,
       builder: (context, state) {
         return state.maybeWhen(
           specializationsLoading: () => CircularProgressIndicator(),

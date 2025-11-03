@@ -23,7 +23,7 @@ class SpecializationCategoryItem extends StatelessWidget {
           CircleAvatar(
             radius: 35,
             backgroundColor:
-                isSelectedIndex ? AppColors.blue : Color(0xffF4F8FF),
+                isSelectedIndex ? Colors.blue.shade200 : Color(0xffF4F8FF),
             child: Image.asset(AppImages.category, height: 60, width: 60),
           ),
           SizedBox(height: 10),

@@ -1,6 +1,8 @@
 import 'package:doctor_appointment/feature/home/data/models/specialization_response.dart';
+import 'package:doctor_appointment/feature/home/presentation/logic/cubit/home_cubit.dart';
 import 'package:doctor_appointment/feature/home/presentation/screens/widgets/specialization_category_item.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class SpecializationCategoryListView extends StatefulWidget {
   const SpecializationCategoryListView({
@@ -31,6 +33,9 @@ class _SpecializationCategoryListViewState
               setState(() {
                 selectedIndex = index;
               });
+              BlocProvider.of<HomeCubit>(
+                context,
+              ).getDoctorsBySpeceializationId(specialization!.id!);
             },
             child: SpecializationCategoryItem(
               specialization: specialization,
