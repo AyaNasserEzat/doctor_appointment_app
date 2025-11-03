@@ -15,6 +15,7 @@ class HomeCubit extends Cubit<HomeState> {
     response.when(
       success: (specializationResponse) {
         specializationData = specializationResponse.data;
+        getDoctorsBySpeceializationId(specializationData!.first.id!);
         emit(HomeState.specializationsSuccess(specializationData));
       },
       failure: (apiErroeModel) {
