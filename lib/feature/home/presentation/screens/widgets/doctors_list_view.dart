@@ -4,15 +4,15 @@ import 'package:flutter/material.dart';
 
 class DoctorsListView extends StatelessWidget {
   const DoctorsListView({super.key, required this.doctorsList});
-  final List<Doctor> doctorsList;
+  final List<Doctor?>? doctorsList;
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
-      itemCount: doctorsList.length,
+      itemCount: doctorsList!.length,
       shrinkWrap: true,
       physics: const NeverScrollableScrollPhysics(),
       itemBuilder: (context, index) {
-        return DoctorItem(doctorModel: doctorsList[index]);
+        return DoctorItem(doctorModel: doctorsList![index]!);
       },
     );
   }

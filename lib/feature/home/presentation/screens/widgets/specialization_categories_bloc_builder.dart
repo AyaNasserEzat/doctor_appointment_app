@@ -1,6 +1,5 @@
 import 'package:doctor_appointment/feature/home/presentation/logic/cubit/home_cubit.dart';
 import 'package:doctor_appointment/feature/home/presentation/logic/cubit/home_state.dart';
-import 'package:doctor_appointment/feature/home/presentation/screens/widgets/doctors_list_view.dart';
 import 'package:doctor_appointment/feature/home/presentation/screens/widgets/specialization_category_list_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -22,17 +21,8 @@ class SpecializationCategoriesBlocBuilder extends StatelessWidget {
           specializationsError:
               (apiErrorModel) => Text(apiErrorModel.message ?? "error"),
           specializationsSuccess: (specializationDataList) {
-            return Column(
-              spacing: 20,
-              children: [
-                SpecializationCategoryListView(
-                  specializationDataList: specializationDataList ?? [],
-                ),
-
-                DoctorsListView(
-                  doctorsList: specializationDataList?.first?.doctors ?? [],
-                ),
-              ],
+            return SpecializationCategoryListView(
+              specializationDataList: specializationDataList ?? [],
             );
           },
           orElse: () => SizedBox.shrink(),
