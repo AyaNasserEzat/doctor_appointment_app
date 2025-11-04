@@ -59,7 +59,7 @@ class _DoctorAppointmentApiService implements DoctorAppointmentApiService {
       Options(method: 'POST', headers: _headers, extra: _extra)
           .compose(
             _dio.options,
-            'appointment/index',
+            'appointment/store',
             queryParameters: queryParameters,
             data: _data,
           )
