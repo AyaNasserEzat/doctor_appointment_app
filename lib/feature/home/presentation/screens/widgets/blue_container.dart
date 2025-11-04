@@ -19,7 +19,7 @@ class BlueContainer extends StatelessWidget {
             width: double.infinity,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(24),
-              color: Colors.blue.shade300,
+              color: AppColors.blue
             ),
           ),
           Padding(

@@ -1,3 +1,4 @@
+import 'package:doctor_appointment/core/utils/app_colors.dart';
 import 'package:doctor_appointment/core/utils/app_images.dart';
 import 'package:doctor_appointment/core/utils/app_strings.dart';
 import 'package:doctor_appointment/core/utils/app_text_styles.dart';
@@ -13,7 +14,7 @@ class LogoAndAppName extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.center,
       spacing: 10,
       children: [
-        SvgPicture.asset(AppImages.appLogo),
+        SvgPicture.asset(AppImages.appLogo,color: AppColors.blue,),
         Text(AppStrings.appName, style: AppTextStyles.interBold24),
       ],
     );

@@ -1,6 +1,8 @@
 import 'package:doctor_appointment/core/di/depensency_injection.dart';
 import 'package:doctor_appointment/core/routing/routes.dart';
+import 'package:doctor_appointment/feature/home/data/models/specialization_response.dart';
 import 'package:doctor_appointment/feature/home/presentation/logic/cubit/home_cubit.dart';
+import 'package:doctor_appointment/feature/appointment/presentation/screens/doctor_details_screen.dart';
 import 'package:doctor_appointment/feature/home/presentation/screens/home_screen.dart';
 import 'package:doctor_appointment/feature/login/prsentation/logic/cubit/login_cubit.dart';
 import 'package:doctor_appointment/feature/login/prsentation/screens/login_screen.dart';
@@ -9,6 +11,7 @@ import 'package:doctor_appointment/feature/signUp/presentation/logic/cubit/signu
 import 'package:doctor_appointment/feature/signUp/presentation/screens/sign_up_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:retrofit/retrofit.dart';
 
 class AppRouter {
   static Route? generateRout(RouteSettings settings) {
@@ -31,11 +34,14 @@ class AppRouter {
                 child: SignUpScreen(),
               ),
         );
+      case Routes.doctorDetailsScreen:
+        return MaterialPageRoute(builder: (_) => DoctorDetailsScreen(doctor: settings.arguments as Doctor,));
       case Routes.homeScreen:
         return MaterialPageRoute(
           builder:
               (_) => BlocProvider(
-                create: (context) => getIt<HomeCubit>()..getspecializationsState(),
+                create:
+                    (context) => getIt<HomeCubit>()..getspecializationsState(),
                 child: HomeScreen(),
               ),
         );

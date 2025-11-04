@@ -1,4 +1,3 @@
-import 'package:doctor_appointment/core/utils/app_colors.dart';
 import 'package:doctor_appointment/core/utils/app_images.dart';
 import 'package:doctor_appointment/core/utils/app_text_styles.dart';
 import 'package:doctor_appointment/feature/home/data/models/specialization_response.dart';
@@ -23,7 +22,7 @@ class SpecializationCategoryItem extends StatelessWidget {
           CircleAvatar(
             radius: 35,
             backgroundColor:
-                isSelectedIndex ? Colors.blue.shade200 : Color(0xffF4F8FF),
+                isSelectedIndex ? Colors.blue.shade300 : Color(0xffF4F8FF),
             child: Image.asset(AppImages.category, height: 60, width: 60),
           ),
           SizedBox(height: 10),

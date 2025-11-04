@@ -8,7 +8,7 @@ class AppTextStyles {
     fontSize: 16,
   );
 
-  static const TextStyle interBold32 = TextStyle(
+  static  TextStyle interBold32 = TextStyle(
     fontFamily: 'Inter',
     color: AppColors.blue,
     fontWeight: FontWeight.w700,
@@ -49,6 +49,12 @@ class AppTextStyles {
   static const TextStyle interRegular14 = TextStyle(
     fontFamily: 'Inter',
     color: AppColors.textgrey,
+    fontWeight: FontWeight.w400,
+    fontSize: 14,
+  );
+    static  TextStyle interRegular14Blue = TextStyle(
+    fontFamily: 'Inter',
+    color:Colors.blue.shade700,
     fontWeight: FontWeight.w400,
     fontSize: 14,
   );
@@ -99,7 +105,7 @@ class AppTextStyles {
     fontSize: 16,
   );
 
-  static const TextStyle interBold18 = TextStyle(
+  static  TextStyle interBold18 = TextStyle(
     fontFamily: 'Inter',
     color: AppColors.blue,
     fontWeight: FontWeight.w700,
