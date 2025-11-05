@@ -1,6 +1,8 @@
 import 'package:dio/dio.dart';
 import 'package:doctor_appointment/core/networking/api_service.dart';
 import 'package:doctor_appointment/core/networking/dio_factory.dart';
+import 'package:doctor_appointment/feature/appointment/data/apis/doctor_appointment_api_service.dart';
+import 'package:doctor_appointment/feature/appointment/data/repos/doctor_appoinment_repo.dart';
 import 'package:doctor_appointment/feature/home/data/apis/home_api_service.dart';
 import 'package:doctor_appointment/feature/home/data/repos/home_repo.dart';
 import 'package:doctor_appointment/feature/home/presentation/logic/cubit/home_cubit.dart';
@@ -26,4 +28,8 @@ void setUpGetIt() {
   getIt.registerLazySingleton<HomeApiService>(() => HomeApiService(dio));
   getIt.registerLazySingleton<HomeRepo>(() => HomeRepo(getIt()));
   getIt.registerFactory<HomeCubit>(() => HomeCubit(getIt()));
+
+  //doctor appointment
+    getIt.registerLazySingleton<DoctorAppointmentApiService>(() => DoctorAppointmentApiService(dio));
+  getIt.registerLazySingleton<DoctorAppoinmentRepo>(() => DoctorAppoinmentRepo(getIt()));
 }

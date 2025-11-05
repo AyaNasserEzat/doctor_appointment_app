@@ -67,14 +67,15 @@ class AppTextStyles {
 
   static const TextStyle interMedium12 = TextStyle(
     fontFamily: 'Inter',
-    fontWeight: FontWeight.w500,
+    fontWeight: FontWeight.w700,
+    color: AppColors.textgrey,
     fontSize: 12,
   );
 
   static const TextStyle interMedium14 = TextStyle(
     fontFamily: 'Inter',
     color: AppColors.textgrey,
-    fontWeight: FontWeight.w500,
+    fontWeight: FontWeight.w700,
     fontSize: 14,
   );
 
@@ -140,7 +141,7 @@ class AppTextStyles {
     fontFamily: 'Inter',
     color: AppColors.white,
     fontWeight: FontWeight.w700,
-    fontSize: 20,
+    fontSize: 17,
   );
 
   static const TextStyle interMedium20 = TextStyle(

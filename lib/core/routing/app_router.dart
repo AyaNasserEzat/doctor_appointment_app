@@ -1,5 +1,7 @@
 import 'package:doctor_appointment/core/di/depensency_injection.dart';
 import 'package:doctor_appointment/core/routing/routes.dart';
+import 'package:doctor_appointment/feature/appointment/presentation/logic/cubit/doctor_aapointment_cubit.dart';
+import 'package:doctor_appointment/feature/appointment/presentation/screens/all_my_appointment_screen.dart';
 import 'package:doctor_appointment/feature/home/data/models/specialization_response.dart';
 import 'package:doctor_appointment/feature/home/presentation/logic/cubit/home_cubit.dart';
 import 'package:doctor_appointment/feature/appointment/presentation/screens/doctor_details_screen.dart';
@@ -11,7 +13,6 @@ import 'package:doctor_appointment/feature/signUp/presentation/logic/cubit/signu
 import 'package:doctor_appointment/feature/signUp/presentation/screens/sign_up_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:retrofit/retrofit.dart';
 
 class AppRouter {
   static Route? generateRout(RouteSettings settings) {
@@ -35,7 +36,21 @@ class AppRouter {
               ),
         );
       case Routes.doctorDetailsScreen:
-        return MaterialPageRoute(builder: (_) => DoctorDetailsScreen(doctor: settings.arguments as Doctor,));
+        return MaterialPageRoute(
+          builder:
+              (_) => DoctorDetailsScreen(doctor: settings.arguments as Doctor),
+        );
+      case Routes.allMyAppointmentScreen:
+        return MaterialPageRoute(
+          builder:
+              (_) => BlocProvider(
+                create:
+                    (context) =>
+                        DoctorAapointmentCubit(getIt())..getAllMyAppointments(),
+                child: AllMyAppointmentScreen(),
+              ),
+        );
+
       case Routes.homeScreen:
         return MaterialPageRoute(
           builder:
