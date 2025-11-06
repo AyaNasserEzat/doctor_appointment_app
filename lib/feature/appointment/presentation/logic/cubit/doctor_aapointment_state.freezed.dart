@@ -55,7 +55,7 @@ extension DoctorAapointmentStatePatterns on DoctorAapointmentState {
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeMap<TResult extends Object?>({TResult Function( _Initial value)?  initial,TResult Function( GetallAppointmentLoading value)?  getallAppointmentLoading,TResult Function( GetallAppointmentSuccess value)?  getallAppointmentSuccess,TResult Function( GetallAppointmentError value)?  getallAppointmentError,TResult Function( StoreAppointmentLoading value)?  storeAppointmentLoading,TResult Function( StoreAppointmentSucess value)?  storeAppointmentSucess,TResult Function( StoreAppointmentError value)?  storeAppointmentError,required TResult orElse(),}){
+@optionalTypeArgs TResult maybeMap<TResult extends Object?>({TResult Function( _Initial value)?  initial,TResult Function( GetallAppointmentLoading value)?  getallAppointmentLoading,TResult Function( GetallAppointmentSuccess value)?  getallAppointmentSuccess,TResult Function( GetallAppointmentError value)?  getallAppointmentError,TResult Function( StoreAppointmentLoading value)?  storeAppointmentLoading,TResult Function( StoreAppointmentSucess value)?  storeAppointmentSucess,TResult Function( StoreAppointmentError value)?  storeAppointmentError,TResult Function( SelectDatePicked value)?  selectDatePicked,TResult Function( SelectTime value)?  selectTime,required TResult orElse(),}){
 final _that = this;
 switch (_that) {
 case _Initial() when initial != null:
@@ -65,7 +65,9 @@ return getallAppointmentSuccess(_that);case GetallAppointmentError() when getall
 return getallAppointmentError(_that);case StoreAppointmentLoading() when storeAppointmentLoading != null:
 return storeAppointmentLoading(_that);case StoreAppointmentSucess() when storeAppointmentSucess != null:
 return storeAppointmentSucess(_that);case StoreAppointmentError() when storeAppointmentError != null:
-return storeAppointmentError(_that);case _:
+return storeAppointmentError(_that);case SelectDatePicked() when selectDatePicked != null:
+return selectDatePicked(_that);case SelectTime() when selectTime != null:
+return selectTime(_that);case _:
   return orElse();
 
 }
@@ -83,7 +85,7 @@ return storeAppointmentError(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult map<TResult extends Object?>({required TResult Function( _Initial value)  initial,required TResult Function( GetallAppointmentLoading value)  getallAppointmentLoading,required TResult Function( GetallAppointmentSuccess value)  getallAppointmentSuccess,required TResult Function( GetallAppointmentError value)  getallAppointmentError,required TResult Function( StoreAppointmentLoading value)  storeAppointmentLoading,required TResult Function( StoreAppointmentSucess value)  storeAppointmentSucess,required TResult Function( StoreAppointmentError value)  storeAppointmentError,}){
+@optionalTypeArgs TResult map<TResult extends Object?>({required TResult Function( _Initial value)  initial,required TResult Function( GetallAppointmentLoading value)  getallAppointmentLoading,required TResult Function( GetallAppointmentSuccess value)  getallAppointmentSuccess,required TResult Function( GetallAppointmentError value)  getallAppointmentError,required TResult Function( StoreAppointmentLoading value)  storeAppointmentLoading,required TResult Function( StoreAppointmentSucess value)  storeAppointmentSucess,required TResult Function( StoreAppointmentError value)  storeAppointmentError,required TResult Function( SelectDatePicked value)  selectDatePicked,required TResult Function( SelectTime value)  selectTime,}){
 final _that = this;
 switch (_that) {
 case _Initial():
@@ -93,7 +95,9 @@ return getallAppointmentSuccess(_that);case GetallAppointmentError():
 return getallAppointmentError(_that);case StoreAppointmentLoading():
 return storeAppointmentLoading(_that);case StoreAppointmentSucess():
 return storeAppointmentSucess(_that);case StoreAppointmentError():
-return storeAppointmentError(_that);case _:
+return storeAppointmentError(_that);case SelectDatePicked():
+return selectDatePicked(_that);case SelectTime():
+return selectTime(_that);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -110,7 +114,7 @@ return storeAppointmentError(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>({TResult? Function( _Initial value)?  initial,TResult? Function( GetallAppointmentLoading value)?  getallAppointmentLoading,TResult? Function( GetallAppointmentSuccess value)?  getallAppointmentSuccess,TResult? Function( GetallAppointmentError value)?  getallAppointmentError,TResult? Function( StoreAppointmentLoading value)?  storeAppointmentLoading,TResult? Function( StoreAppointmentSucess value)?  storeAppointmentSucess,TResult? Function( StoreAppointmentError value)?  storeAppointmentError,}){
+@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>({TResult? Function( _Initial value)?  initial,TResult? Function( GetallAppointmentLoading value)?  getallAppointmentLoading,TResult? Function( GetallAppointmentSuccess value)?  getallAppointmentSuccess,TResult? Function( GetallAppointmentError value)?  getallAppointmentError,TResult? Function( StoreAppointmentLoading value)?  storeAppointmentLoading,TResult? Function( StoreAppointmentSucess value)?  storeAppointmentSucess,TResult? Function( StoreAppointmentError value)?  storeAppointmentError,TResult? Function( SelectDatePicked value)?  selectDatePicked,TResult? Function( SelectTime value)?  selectTime,}){
 final _that = this;
 switch (_that) {
 case _Initial() when initial != null:
@@ -120,7 +124,9 @@ return getallAppointmentSuccess(_that);case GetallAppointmentError() when getall
 return getallAppointmentError(_that);case StoreAppointmentLoading() when storeAppointmentLoading != null:
 return storeAppointmentLoading(_that);case StoreAppointmentSucess() when storeAppointmentSucess != null:
 return storeAppointmentSucess(_that);case StoreAppointmentError() when storeAppointmentError != null:
-return storeAppointmentError(_that);case _:
+return storeAppointmentError(_that);case SelectDatePicked() when selectDatePicked != null:
+return selectDatePicked(_that);case SelectTime() when selectTime != null:
+return selectTime(_that);case _:
   return null;
 
 }
@@ -137,7 +143,7 @@ return storeAppointmentError(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>({TResult Function()?  initial,TResult Function()?  getallAppointmentLoading,TResult Function( GetAllAppointmentsResponse getAllAppointmentsResponse)?  getallAppointmentSuccess,TResult Function( ApiErrorModel apiErroeModel)?  getallAppointmentError,TResult Function()?  storeAppointmentLoading,TResult Function( AppointmentResponse storAppoinmentResponse)?  storeAppointmentSucess,TResult Function( ApiErrorModel apiErroeModel)?  storeAppointmentError,required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>({TResult Function()?  initial,TResult Function()?  getallAppointmentLoading,TResult Function( GetAllAppointmentsResponse getAllAppointmentsResponse)?  getallAppointmentSuccess,TResult Function( ApiErrorModel apiErroeModel)?  getallAppointmentError,TResult Function()?  storeAppointmentLoading,TResult Function( AppointmentResponse storAppoinmentResponse)?  storeAppointmentSucess,TResult Function( ApiErrorModel apiErroeModel)?  storeAppointmentError,TResult Function()?  selectDatePicked,TResult Function( String selectedTime)?  selectTime,required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _Initial() when initial != null:
 return initial();case GetallAppointmentLoading() when getallAppointmentLoading != null:
@@ -146,7 +152,9 @@ return getallAppointmentSuccess(_that.getAllAppointmentsResponse);case GetallApp
 return getallAppointmentError(_that.apiErroeModel);case StoreAppointmentLoading() when storeAppointmentLoading != null:
 return storeAppointmentLoading();case StoreAppointmentSucess() when storeAppointmentSucess != null:
 return storeAppointmentSucess(_that.storAppoinmentResponse);case StoreAppointmentError() when storeAppointmentError != null:
-return storeAppointmentError(_that.apiErroeModel);case _:
+return storeAppointmentError(_that.apiErroeModel);case SelectDatePicked() when selectDatePicked != null:
+return selectDatePicked();case SelectTime() when selectTime != null:
+return selectTime(_that.selectedTime);case _:
   return orElse();
 
 }
@@ -164,7 +172,7 @@ return storeAppointmentError(_that.apiErroeModel);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>({required TResult Function()  initial,required TResult Function()  getallAppointmentLoading,required TResult Function( GetAllAppointmentsResponse getAllAppointmentsResponse)  getallAppointmentSuccess,required TResult Function( ApiErrorModel apiErroeModel)  getallAppointmentError,required TResult Function()  storeAppointmentLoading,required TResult Function( AppointmentResponse storAppoinmentResponse)  storeAppointmentSucess,required TResult Function( ApiErrorModel apiErroeModel)  storeAppointmentError,}) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>({required TResult Function()  initial,required TResult Function()  getallAppointmentLoading,required TResult Function( GetAllAppointmentsResponse getAllAppointmentsResponse)  getallAppointmentSuccess,required TResult Function( ApiErrorModel apiErroeModel)  getallAppointmentError,required TResult Function()  storeAppointmentLoading,required TResult Function( AppointmentResponse storAppoinmentResponse)  storeAppointmentSucess,required TResult Function( ApiErrorModel apiErroeModel)  storeAppointmentError,required TResult Function()  selectDatePicked,required TResult Function( String selectedTime)  selectTime,}) {final _that = this;
 switch (_that) {
 case _Initial():
 return initial();case GetallAppointmentLoading():
@@ -173,7 +181,9 @@ return getallAppointmentSuccess(_that.getAllAppointmentsResponse);case GetallApp
 return getallAppointmentError(_that.apiErroeModel);case StoreAppointmentLoading():
 return storeAppointmentLoading();case StoreAppointmentSucess():
 return storeAppointmentSucess(_that.storAppoinmentResponse);case StoreAppointmentError():
-return storeAppointmentError(_that.apiErroeModel);case _:
+return storeAppointmentError(_that.apiErroeModel);case SelectDatePicked():
+return selectDatePicked();case SelectTime():
+return selectTime(_that.selectedTime);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -190,7 +200,7 @@ return storeAppointmentError(_that.apiErroeModel);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>({TResult? Function()?  initial,TResult? Function()?  getallAppointmentLoading,TResult? Function( GetAllAppointmentsResponse getAllAppointmentsResponse)?  getallAppointmentSuccess,TResult? Function( ApiErrorModel apiErroeModel)?  getallAppointmentError,TResult? Function()?  storeAppointmentLoading,TResult? Function( AppointmentResponse storAppoinmentResponse)?  storeAppointmentSucess,TResult? Function( ApiErrorModel apiErroeModel)?  storeAppointmentError,}) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>({TResult? Function()?  initial,TResult? Function()?  getallAppointmentLoading,TResult? Function( GetAllAppointmentsResponse getAllAppointmentsResponse)?  getallAppointmentSuccess,TResult? Function( ApiErrorModel apiErroeModel)?  getallAppointmentError,TResult? Function()?  storeAppointmentLoading,TResult? Function( AppointmentResponse storAppoinmentResponse)?  storeAppointmentSucess,TResult? Function( ApiErrorModel apiErroeModel)?  storeAppointmentError,TResult? Function()?  selectDatePicked,TResult? Function( String selectedTime)?  selectTime,}) {final _that = this;
 switch (_that) {
 case _Initial() when initial != null:
 return initial();case GetallAppointmentLoading() when getallAppointmentLoading != null:
@@ -199,7 +209,9 @@ return getallAppointmentSuccess(_that.getAllAppointmentsResponse);case GetallApp
 return getallAppointmentError(_that.apiErroeModel);case StoreAppointmentLoading() when storeAppointmentLoading != null:
 return storeAppointmentLoading();case StoreAppointmentSucess() when storeAppointmentSucess != null:
 return storeAppointmentSucess(_that.storAppoinmentResponse);case StoreAppointmentError() when storeAppointmentError != null:
-return storeAppointmentError(_that.apiErroeModel);case _:
+return storeAppointmentError(_that.apiErroeModel);case SelectDatePicked() when selectDatePicked != null:
+return selectDatePicked();case SelectTime() when selectTime != null:
+return selectTime(_that.selectedTime);case _:
   return null;
 
 }
@@ -561,6 +573,104 @@ class _$StoreAppointmentErrorCopyWithImpl<$Res>
   return _then(StoreAppointmentError(
 null == apiErroeModel ? _self.apiErroeModel : apiErroeModel // ignore: cast_nullable_to_non_nullable
 as ApiErrorModel,
+  ));
+}
+
+
+}
+
+/// @nodoc
+
+
+class SelectDatePicked implements DoctorAapointmentState {
+  const SelectDatePicked();
+  
+
+
+
+
+
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is SelectDatePicked);
+}
+
+
+@override
+int get hashCode => runtimeType.hashCode;
+
+@override
+String toString() {
+  return 'DoctorAapointmentState.selectDatePicked()';
+}
+
+
+}
+
+
+
+
+/// @nodoc
+
+
+class SelectTime implements DoctorAapointmentState {
+  const SelectTime({required this.selectedTime});
+  
+
+ final  String selectedTime;
+
+/// Create a copy of DoctorAapointmentState
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$SelectTimeCopyWith<SelectTime> get copyWith => _$SelectTimeCopyWithImpl<SelectTime>(this, _$identity);
+
+
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is SelectTime&&(identical(other.selectedTime, selectedTime) || other.selectedTime == selectedTime));
+}
+
+
+@override
+int get hashCode => Object.hash(runtimeType,selectedTime);
+
+@override
+String toString() {
+  return 'DoctorAapointmentState.selectTime(selectedTime: $selectedTime)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class $SelectTimeCopyWith<$Res> implements $DoctorAapointmentStateCopyWith<$Res> {
+  factory $SelectTimeCopyWith(SelectTime value, $Res Function(SelectTime) _then) = _$SelectTimeCopyWithImpl;
+@useResult
+$Res call({
+ String selectedTime
+});
+
+
+
+
+}
+/// @nodoc
+class _$SelectTimeCopyWithImpl<$Res>
+    implements $SelectTimeCopyWith<$Res> {
+  _$SelectTimeCopyWithImpl(this._self, this._then);
+
+  final SelectTime _self;
+  final $Res Function(SelectTime) _then;
+
+/// Create a copy of DoctorAapointmentState
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') $Res call({Object? selectedTime = null,}) {
+  return _then(SelectTime(
+selectedTime: null == selectedTime ? _self.selectedTime : selectedTime // ignore: cast_nullable_to_non_nullable
+as String,
   ));
 }
 

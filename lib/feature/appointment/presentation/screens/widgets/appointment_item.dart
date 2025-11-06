@@ -29,7 +29,7 @@ class AppointmentItem extends StatelessWidget {
                 fullDateTime: appointmentDataModel.appointmentTime,
               ),
               SizedBox(height: 8),
-              CancelOrReschedule(),
+              CancelOrReschedule(appointmentData: appointmentDataModel,),
             ],
           ),
         ),

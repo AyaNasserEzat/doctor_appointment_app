@@ -1,48 +1,43 @@
 import 'package:doctor_appointment/core/utils/app_colors.dart';
 import 'package:doctor_appointment/core/utils/app_text_styles.dart';
+import 'package:doctor_appointment/feature/appointment/presentation/logic/cubit/doctor_aapointment_cubit.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
-class SelectDateTextFormField extends StatefulWidget {
+class SelectDateTextFormField extends StatelessWidget {
   const SelectDateTextFormField({super.key});
 
   @override
-  State<SelectDateTextFormField> createState() =>
-      _SelectDateTextFormFieldState();
-}
-
-class _SelectDateTextFormFieldState extends State<SelectDateTextFormField> {
-  final TextEditingController _dateController = TextEditingController();
-
-  Future<void> _selectDate(BuildContext context) async {
-    DateTime now = DateTime.now();
-    final DateTime? picked = await showDatePicker(
-      context: context,
-      initialDate: now,
-      firstDate: DateTime(2000),
-      lastDate: DateTime(2100),
-      builder: (context, child) {
-        return Theme(
-          data: Theme.of(context).copyWith(
-            colorScheme: ColorScheme.light(
-              primary: AppColors.blue,
-              onPrimary: Colors.white,
-              onSurface: Colors.black,
-            ),
-          ),
-          child: child!,
-        );
-      },
-    );
-
-    if (picked != null) {
-      setState(() {
-        _dateController.text = picked.toString().substring(0, 10);
-      });
-    }
-  }
-
-  @override
   Widget build(BuildContext context) {
+    Future<void> selectDate(BuildContext context) async {
+      DateTime now = DateTime.now();
+      final DateTime? picked = await showDatePicker(
+        context: context,
+        initialDate: now,
+        firstDate: DateTime(2000),
+        lastDate: DateTime(2100),
+        builder: (context, child) {
+          return Theme(
+            data: Theme.of(context).copyWith(
+              colorScheme: ColorScheme.light(
+                primary: AppColors.blue,
+                onPrimary: Colors.white,
+                onSurface: Colors.black,
+              ),
+            ),
+            child: child!,
+          );
+        },
+      );
+
+      if (picked != null) {
+        // setState(() {
+        //   _dateController.text = picked.toString().substring(0, 10);
+        // });
+        BlocProvider.of<DoctorAapointmentCubit>(context).selectDate(picked);
+      }
+    }
+
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 12.0),
       child: Column(
@@ -52,7 +47,8 @@ class _SelectDateTextFormFieldState extends State<SelectDateTextFormField> {
           Text("Select Date", style: AppTextStyles.interBoldBlack18),
 
           TextFormField(
-            controller: _dateController,
+            controller:
+                BlocProvider.of<DoctorAapointmentCubit>(context).dateContreller,
             readOnly: true,
             decoration: InputDecoration(
               hintText: DateTime.now().toString().substring(0, 10),
@@ -60,11 +56,8 @@ class _SelectDateTextFormFieldState extends State<SelectDateTextFormField> {
               fillColor: Color(0xfff2f4f7),
               filled: true,
               suffixIcon: IconButton(
-                onPressed: () => _selectDate(context),
-                icon: Icon(
-                  Icons.calendar_month_rounded,
-                  color: AppColors.blue
-                ),
+                onPressed: () => selectDate(context),
+                icon: Icon(Icons.calendar_month_rounded, color: AppColors.blue),
               ),
               border: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(16),
@@ -76,7 +69,7 @@ class _SelectDateTextFormFieldState extends State<SelectDateTextFormField> {
               ),
               focusedBorder: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(16),
-                borderSide:  BorderSide(color: AppColors.blue,width: 1.3),
+                borderSide: BorderSide(color: AppColors.blue, width: 1.3),
               ),
             ),
           ),

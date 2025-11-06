@@ -1,4 +1,5 @@
 
+import 'package:doctor_appointment/core/helper/extension.dart';
 import 'package:doctor_appointment/core/utils/app_colors.dart';
 import 'package:doctor_appointment/core/utils/app_images.dart';
 import 'package:flutter/material.dart';
@@ -29,7 +30,9 @@ class DoctorTopBar extends StatelessWidget {
           top: 10,
           left: 10,
           child: IconButton(
-            onPressed: () {},
+            onPressed: () {
+              context.pop();
+            },
             icon: Icon(Icons.arrow_back_ios, color: AppColors.white),
           ),
         ),

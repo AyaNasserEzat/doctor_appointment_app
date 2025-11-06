@@ -38,7 +38,12 @@ class AppRouter {
       case Routes.doctorDetailsScreen:
         return MaterialPageRoute(
           builder:
-              (_) => DoctorDetailsScreen(doctor: settings.arguments as Doctor),
+              (_) => BlocProvider(
+                create: (context) => DoctorAapointmentCubit(getIt()),
+                child: DoctorDetailsScreen(
+                  doctor: settings.arguments as Doctor,
+                ),
+              ),
         );
       case Routes.allMyAppointmentScreen:
         return MaterialPageRoute(

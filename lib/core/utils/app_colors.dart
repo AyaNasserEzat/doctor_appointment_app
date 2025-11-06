@@ -4,7 +4,7 @@ class AppColors {
   //  Primary & Brand Colors
   static const Color red = Color(0xFFF06B79);
   static  Color blue = Colors.blue.shade300;//Color(0xFF247CFF);
-  static const Color green = Color(0xFF12B76A);
+  static const Color green = Color(0xff22c55e);
   static const Color purple = Color(0xFF7F56D9);
   static const Color orange = Color(0xFFFFB347);
   static const Color yellow = Color(0xFFFFD600);
