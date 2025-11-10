@@ -29,7 +29,7 @@ class DoctorDetailsScreen extends StatelessWidget {
                 startTime: '${doctor.startTime}',
                 endTime: '${doctor.endTime}',
               ),
-              SizedBox(height: 165),
+              SizedBox(height: 110),
               PricAndBookNowButton(doctor: doctor),
               StoreAppointmentBlocListener()
             ],

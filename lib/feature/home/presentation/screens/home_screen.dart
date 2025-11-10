@@ -10,23 +10,21 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Scaffold(
-        body: Padding(
-          padding: const EdgeInsets.only(top: 16.0, right: 16, left: 16),
-          child: SingleChildScrollView(
-            child: Column(
-              children: [
-                HomeTopBar(),
-                SizedBox(height: 16),
-                BlueContainer(),
-                SeeAllDoctorSpecialityRow(),
-                SizedBox(height: 16),
-                SpecializationCategoriesBlocBuilder(),
-                SizedBox(height: 16),
-                DoctorsBlocBuilder()
-              ],
-            ),
+    return Scaffold(
+      body: Padding(
+        padding: const EdgeInsets.only(top: 30.0, right: 16, left: 16),
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+              HomeTopBar(),
+              SizedBox(height: 16),
+              BlueContainer(),
+              SeeAllDoctorSpecialityRow(),
+              SizedBox(height: 16),
+              SpecializationCategoriesBlocBuilder(),
+              SizedBox(height: 16),
+              DoctorsBlocBuilder()
+            ],
           ),
         ),
       ),

@@ -1,13 +1,11 @@
-
 import 'package:doctor_appointment/core/helper/extension.dart';
 import 'package:doctor_appointment/core/utils/app_colors.dart';
 import 'package:doctor_appointment/core/utils/app_images.dart';
+import 'package:doctor_appointment/core/utils/app_text_styles.dart';
 import 'package:flutter/material.dart';
 
 class DoctorTopBar extends StatelessWidget {
-  const DoctorTopBar({
-    super.key,
-  });
+  const DoctorTopBar({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -16,7 +14,7 @@ class DoctorTopBar extends StatelessWidget {
       clipBehavior: Clip.none,
       children: [
         Container(
-          height: 100,
+          height: 150,
           width: double.infinity,
           decoration: BoxDecoration(
             color: AppColors.blue,
@@ -36,7 +34,13 @@ class DoctorTopBar extends StatelessWidget {
             icon: Icon(Icons.arrow_back_ios, color: AppColors.white),
           ),
         ),
-    
+        Positioned(
+          top: 20,
+          child: Text(
+            "Doctor Appointment",
+            style: AppTextStyles.interBoldWhite20,
+          ),
+        ),
         Positioned(
           bottom: -40,
           child: Container(
@@ -53,4 +57,3 @@ class DoctorTopBar extends StatelessWidget {
     );
   }
 }
-

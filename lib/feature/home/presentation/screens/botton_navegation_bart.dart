@@ -27,7 +27,10 @@ class _BottomNavBarViewState extends State<BottomNavBarView> {
       create: (context) => getIt<HomeCubit>()..getspecializationsState(),
       child: const HomeScreen(),
     ),
-    BlocProvider(create: (context) => ProfileCubit(getIt())..getProfile(), child: ProfileScreen()),
+    BlocProvider(
+      create: (context) => ProfileCubit(getIt())..getProfile(),
+      child: ProfileScreen(),
+    ),
     BlocProvider(
       create:
           (context) => DoctorAapointmentCubit(getIt())..getAllMyAppointments(),
@@ -45,9 +48,7 @@ class _BottomNavBarViewState extends State<BottomNavBarView> {
         padding: const EdgeInsets.all(8.0),
         child: Container(
           height: 60,
-
           decoration: BoxDecoration(
-            // gradient: LinearGradient(colors: [AppColors.blue,Colors.blueAccent]),
             color: AppColors.blue,
             borderRadius: BorderRadius.circular(24),
           ),
@@ -74,7 +75,7 @@ class _BottomNavBarViewState extends State<BottomNavBarView> {
                             child: Column(
                               children: [
                                 Icon(icons[index], color: AppColors.blue),
-
+        
                                 Text(
                                   lables[index],
                                   style: TextStyle(color: Colors.blue),
