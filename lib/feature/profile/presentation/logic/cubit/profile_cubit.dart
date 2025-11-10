@@ -34,18 +34,17 @@ class ProfileCubit extends Cubit<ProfileState> {
     emit(const ProfileState.updateProfileLoading());
     final response = await profileRepo.updateProfile(
       UpdateProfileRequest(
-        name: editNameController?.text ?? profileResponse!.data[0].name,
-        email: editEmailController?.text ?? profileResponse!.data[0].email,
-        password:
-            editPasswordController?.text ?? profileResponse!.data[0].email,
-        phone: editPhoneController?.text ?? profileResponse!.data[0].phone,
+        name: editNameController!.text,
+        email: editEmailController!.text,
+        //password: editPasswordController!.text,
+        phone: editPhoneController!.text,
         gender: '0',
       ),
     );
     response.when(
       success: (profileResponse) async {
         emit(ProfileState.updateProfileSucess(profileResponse));
-       // getProfile();
+        // getProfile();
       },
       failure: (apiErroeModel) {
         emit(ProfileState.updateProfileError(apiErroeModel));

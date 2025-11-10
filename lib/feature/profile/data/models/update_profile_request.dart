@@ -6,14 +6,13 @@ part 'update_profile_request.g.dart';
 class UpdateProfileRequest {
   final String name;
   final String email;
-  final String password;
+
   final String phone;
   final String gender;
 
   UpdateProfileRequest({
     required this.name,
     required this.email,
-    required this.password,
     required this.phone,
     required this.gender,
   });
