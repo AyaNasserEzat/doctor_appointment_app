@@ -8,6 +8,8 @@ import 'package:doctor_appointment/feature/home/data/repos/home_repo.dart';
 import 'package:doctor_appointment/feature/home/presentation/logic/cubit/home_cubit.dart';
 import 'package:doctor_appointment/feature/login/data/repos/login_repo.dart';
 import 'package:doctor_appointment/feature/login/prsentation/logic/cubit/login_cubit.dart';
+import 'package:doctor_appointment/feature/profile/data/api_service/profile_api_service.dart';
+import 'package:doctor_appointment/feature/profile/data/repos/profile_repo.dart';
 import 'package:doctor_appointment/feature/signUp/data/repos/sign_up_repo.dart';
 import 'package:doctor_appointment/feature/signUp/presentation/logic/cubit/signup_cubit.dart';
 import 'package:get_it/get_it.dart';
@@ -30,6 +32,18 @@ void setUpGetIt() {
   getIt.registerFactory<HomeCubit>(() => HomeCubit(getIt()));
 
   //doctor appointment
-    getIt.registerLazySingleton<DoctorAppointmentApiService>(() => DoctorAppointmentApiService(dio));
-  getIt.registerLazySingleton<DoctorAppoinmentRepo>(() => DoctorAppoinmentRepo(getIt()));
+  getIt.registerLazySingleton<DoctorAppointmentApiService>(
+    () => DoctorAppointmentApiService(dio),
+  );
+  getIt.registerLazySingleton<DoctorAppoinmentRepo>(
+    () => DoctorAppoinmentRepo(getIt()),
+  );
+
+  //profile
+  getIt.registerLazySingleton<ProfileApiService>(
+    () => ProfileApiService(dio),
+  );
+  getIt.registerLazySingleton<ProfileRepo>(
+    () => ProfileRepo(getIt()),
+  );
 }

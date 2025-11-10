@@ -9,13 +9,13 @@ class CustomTextFormField extends StatefulWidget {
     this.controller,
     this.isObscureText,
     this.suffixIcon,
-    required this.validator,
+    this.validator,
   });
   final String hintText;
   final TextEditingController? controller;
   final Widget? suffixIcon;
   final bool? isObscureText;
-  final Function(String?) validator;
+  final Function(String?)? validator;
 
   @override
   State<CustomTextFormField> createState() => _CustomTextFormFieldState();
@@ -29,8 +29,8 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
       controller: widget.controller,
       obscureText: widget.isObscureText == true ? _isHidden : false,
       validator: (value) {
-        return widget.validator(value);
-      },
+  return widget.validator?.call(value);
+},
 
       decoration: InputDecoration(
         suffixIcon:

@@ -1,40 +1,39 @@
 import 'package:doctor_appointment/core/helper/extension.dart';
 import 'package:doctor_appointment/core/networking/api_error_model.dart';
-import 'package:doctor_appointment/core/routing/routes.dart';
 import 'package:doctor_appointment/core/utils/app_colors.dart';
 import 'package:doctor_appointment/core/utils/app_text_styles.dart';
-import 'package:doctor_appointment/feature/login/prsentation/logic/cubit/login_cubit.dart';
-import 'package:doctor_appointment/feature/login/prsentation/logic/cubit/login_state.dart';
+import 'package:doctor_appointment/feature/profile/presentation/logic/cubit/profile_cubit.dart';
+import 'package:doctor_appointment/feature/profile/presentation/logic/cubit/profile_state.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-class LoginBlocListener extends StatelessWidget {
-  const LoginBlocListener({super.key});
+class UpdateProfileBlocLisenere extends StatelessWidget {
+  const UpdateProfileBlocLisenere({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return BlocListener<LoginCubit, LoginState>(
+    return BlocListener<ProfileCubit, ProfileState>(
       listenWhen:
           (previous, current) =>
-              current is LoginLoading ||
-              current is LoginSuccess ||
-              current is LoginError,
+              current is UpdateProfileLoading ||
+              current is UpdateProfileError ||
+              current is UpdateProfileSuccess,
       listener: (context, state) {
         state.whenOrNull(
-          loginLoading: () {
+          updateProfileLoading: () {
             showDialog(
               context: context,
               builder:
-                  (context) =>  Center(
+                  (context) => Center(
                     child: CircularProgressIndicator(color: AppColors.blue),
                   ),
             );
           },
-          loginSuccess: (loginResponse) {
+          updateProfileSucess: (updateProfileResponse) {
             context.pop();
-            context.pushNamed(Routes.bottomNavigationBar);
+            
           },
-          loginError: (apiErrorModel) {
+          updateProfileError: (apiErrorModel) {
             showErrorDialog(context, apiErrorModel);
           },
         );

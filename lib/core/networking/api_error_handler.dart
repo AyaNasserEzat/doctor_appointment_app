@@ -6,7 +6,9 @@ class ApiErrorHandler {
     if (error is DioException) {
       switch (error.type) {
         case DioExceptionType.connectionTimeout:
-          return ApiErrorModel(message: 'Connection timeout with ApiServer');
+          return ApiErrorModel(
+            message: 'Connection Timeout Check Your  Internet',
+          );
 
         case DioExceptionType.sendTimeout:
           return ApiErrorModel(message: 'Send timeout with ApiServer');
@@ -22,9 +24,6 @@ class ApiErrorHandler {
           return ApiErrorModel(message: 'Request to ApiServer was canceld');
 
         case DioExceptionType.unknown:
-          if (error.message!.contains('SocketException')) {
-            return ApiErrorModel(message: 'network layer.');
-          }
           return ApiErrorModel(message: 'Unexpected Error, Please try again!');
         default:
           return ApiErrorModel(
@@ -45,7 +44,7 @@ class ApiErrorHandler {
 //   );
 // }
 
-ApiErrorModel _handelError(dynamic  response) {
+ApiErrorModel _handelError(dynamic response) {
   if (response == null) {
     return ApiErrorModel(message: "No response from server");
   }

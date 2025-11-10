@@ -5,4 +5,8 @@ class Routes {
   static const String homeScreen = '/homeScreen';
   static const String doctorDetailsScreen = '/doctorDetailsScreen';
   static const String allMyAppointmentScreen = '/allMyAppointmentScreen';
+  static const String bottomNavigationBar = '/bottomNavigationBar';
+  static const String profileScreen = '/profileScreen';
+  static const String updateProfileScreen = '/updateProfileScreen';
+  
 }
