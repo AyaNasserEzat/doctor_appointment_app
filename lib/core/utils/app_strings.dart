@@ -35,4 +35,7 @@ class AppStrings {
       "Book and schedule with nearest doctor";
   static const String findNearBy = "Find Near By";
   static const String doctorSpeciality = "Doctor Speciality";
+
+  //
+  static const String updateProfile = "Update Profile";
 }

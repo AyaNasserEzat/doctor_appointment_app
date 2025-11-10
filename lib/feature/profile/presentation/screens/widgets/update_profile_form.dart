@@ -14,31 +14,34 @@ class UpdateProfileForm extends StatelessWidget {
     final cubit = context.read<ProfileCubit>();
     return Form(
       key: cubit.formKey,
-      child: Column(
-        children: [
-          CustomTextFormField(
-            controller: cubit.editNameController,
-            hintText: AppStrings.name,
-          ),
-          SizedBox(height: 16),
-          CustomTextFormField(
-            controller: cubit.editEmailController,
-            hintText: AppStrings.email,
-          ),
-          SizedBox(height: 16),
-          CustomTextFormField(
-            controller: cubit.editPhoneController,
-            hintText: AppStrings.yourNumber,
-          ),
-          SizedBox(height: 20),
-          Button(
-            text: AppStrings.createAccount,
-            onPressed: () {
-              cubit.updateProfile();
-            },
-          ),
-          UpdateProfileBlocLisenere(),
-        ],
+      child: Padding(
+        padding: const EdgeInsets.all(10),
+        child: Column(
+          children: [
+            CustomTextFormField(
+              controller: cubit.editNameController,
+              hintText: AppStrings.name,
+            ),
+            SizedBox(height: 16),
+            CustomTextFormField(
+              controller: cubit.editEmailController,
+              hintText: AppStrings.email,
+            ),
+            SizedBox(height: 16),
+            CustomTextFormField(
+              controller: cubit.editPhoneController,
+              hintText: AppStrings.yourNumber,
+            ),
+            SizedBox(height: 20),
+            Button(
+              text: AppStrings.updateProfile,
+              onPressed: () {
+                cubit.updateProfile();
+              },
+            ),
+            UpdateProfileBlocLisenere(),
+          ],
+        ),
       ),
     );
   }

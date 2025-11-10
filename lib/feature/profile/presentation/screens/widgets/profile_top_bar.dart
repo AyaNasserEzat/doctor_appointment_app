@@ -1,5 +1,7 @@
 import 'package:doctor_appointment/core/helper/extension.dart';
 import 'package:doctor_appointment/core/utils/app_colors.dart';
+import 'package:doctor_appointment/core/utils/app_strings.dart';
+import 'package:doctor_appointment/core/utils/app_text_styles.dart';
 import 'package:flutter/material.dart';
 
 class ProfileTopBar extends StatelessWidget {
@@ -32,6 +34,9 @@ class ProfileTopBar extends StatelessWidget {
             icon: Icon(Icons.arrow_back_ios, color: AppColors.white),
           ),
         ),
+        Positioned(
+          top: 20,
+          child: Text(AppStrings.updateProfile,style: AppTextStyles.interBoldWhite20,)),
 
         Positioned(
           bottom: -40,

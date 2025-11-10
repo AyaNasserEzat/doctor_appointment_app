@@ -31,7 +31,7 @@ class UpdateProfileBlocLisenere extends StatelessWidget {
           },
           updateProfileSucess: (updateProfileResponse) {
             context.pop();
-            
+            context.pop();
           },
           updateProfileError: (apiErrorModel) {
             showErrorDialog(context, apiErrorModel);
