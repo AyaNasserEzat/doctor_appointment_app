@@ -8,5 +8,6 @@ class Routes {
   static const String bottomNavigationBar = '/bottomNavigationBar';
   static const String profileScreen = '/profileScreen';
   static const String updateProfileScreen = '/updateProfileScreen';
+  static const String notificationScreen = '/notificationScreen';
   
 }

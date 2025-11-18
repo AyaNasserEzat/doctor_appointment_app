@@ -22,7 +22,7 @@ class ProfileScreen extends StatelessWidget {
             GetProfileBlocBuilder(),
             GestureDetector(
               onTap: () {
-                context.pushNamed(Routes.updateProfileScreen).then((_){
+                context.pushNamed(Routes.updateProfileScreen).then((_) {
                   context.read<ProfileCubit>().getProfile();
                 });
               },
@@ -42,6 +42,26 @@ class ProfileScreen extends StatelessWidget {
                     "edit personal information",
                     style: AppTextStyles.interBold16,
                   ),
+                ],
+              ),
+            ),
+            GestureDetector(
+              onTap: () {
+                context.pushNamed(Routes.notificationScreen);
+              },
+              child: Row(
+                spacing: 10,
+                children: [
+                  Container(
+                    width: 30,
+                    height: 30,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(12),
+                      color: Colors.blue.shade100,
+                    ),
+                    child: Icon(Icons.edit, color: AppColors.white),
+                  ),
+                  Text("notifications", style: AppTextStyles.interBold16),
                 ],
               ),
             ),

@@ -12,6 +12,7 @@ import 'package:doctor_appointment/feature/onBording/prsentation/screens/on_bord
 import 'package:doctor_appointment/feature/profile/presentation/logic/cubit/profile_cubit.dart';
 import 'package:doctor_appointment/feature/profile/presentation/screens/profile_screen.dart';
 import 'package:doctor_appointment/feature/profile/presentation/screens/update_profile_screen.dart';
+import 'package:doctor_appointment/feature/profile/presentation/screens/widgets/notification_screen.dart';
 import 'package:doctor_appointment/feature/signUp/presentation/logic/cubit/signup_cubit.dart';
 import 'package:doctor_appointment/feature/signUp/presentation/screens/sign_up_screen.dart';
 import 'package:flutter/material.dart';
@@ -63,6 +64,8 @@ class AppRouter {
                 child: UpdateProfileScreen(),
               ),
         );
+     case Routes.notificationScreen:
+        return MaterialPageRoute(builder: (_) => NotificationScreen());
       case Routes.bottomNavigationBar:
         return MaterialPageRoute(builder: (_) => BottomNavBarView());
       default:
