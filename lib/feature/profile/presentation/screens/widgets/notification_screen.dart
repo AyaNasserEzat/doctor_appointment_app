@@ -14,7 +14,7 @@ class NotificationScreen extends StatelessWidget {
               leading: Icon(Icons.alarm),
               title: Text('test baskic noti fction'),
               trailing: IconButton(onPressed: (){
-                NotificationService.showBasicNotification();
+                NotificationService.showScheduleNotification();
               }, icon: Icon(Icons.alarm)),
             )
       

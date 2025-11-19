@@ -1,4 +1,6 @@
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
+import 'package:timezone/timezone.dart' as tz;
+import 'package:timezone/data/latest_all.dart' as tz;
 
 class NotificationService {
   static FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin =
@@ -9,9 +11,7 @@ class NotificationService {
     InitializationSettings initializationSettings = InitializationSettings(
       android: initializationSettingsAndroid,
     );
-    flutterLocalNotificationsPlugin.initialize(
-      initializationSettings,
-    );
+    flutterLocalNotificationsPlugin.initialize(initializationSettings);
   }
 
   static showBasicNotification() async {
@@ -22,6 +22,27 @@ class NotificationService {
       NotificationDetails(
         android: AndroidNotificationDetails('id1', 'basic notifiation'),
       ),
+    );
+  }
+
+  //
+  static showScheduleNotification() async {
+    tz.initializeTimeZones();
+    await flutterLocalNotificationsPlugin.zonedSchedule(
+      1,
+      "title",
+      "body",
+      tz.TZDateTime.now(tz.local).add(Duration(seconds: 10)),
+      NotificationDetails(
+        android: AndroidNotificationDetails(
+          'id1',
+          'basic notifiation',
+          importance: Importance.max,
+          priority: Priority.high,
+        ),
+      ),
+      payload: 'paload',
+      androidScheduleMode: AndroidScheduleMode.exactAllowWhileIdle,
     );
   }
 }
