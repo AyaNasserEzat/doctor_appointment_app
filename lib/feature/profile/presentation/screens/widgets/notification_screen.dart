@@ -1,4 +1,3 @@
-import 'package:doctor_appointment/core/services/notification_service.dart';
 import 'package:flutter/material.dart';
 
 class NotificationScreen extends StatelessWidget {
@@ -13,11 +12,8 @@ class NotificationScreen extends StatelessWidget {
             ListTile(
               leading: Icon(Icons.alarm),
               title: Text('test baskic noti fction'),
-              trailing: IconButton(onPressed: (){
-                NotificationService.showScheduleNotification();
-              }, icon: Icon(Icons.alarm)),
-            )
-      
+              trailing: IconButton(onPressed: () {}, icon: Icon(Icons.alarm)),
+            ),
           ],
         ),
       ),

@@ -1,4 +1,5 @@
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
+import 'package:intl/intl.dart';
 import 'package:timezone/timezone.dart' as tz;
 import 'package:timezone/data/latest_all.dart' as tz;
 import 'package:flutter_timezone/flutter_timezone.dart';
@@ -26,18 +27,27 @@ class NotificationService {
     );
   }
 
-  //
-  static showScheduleNotification() async {
+  // ScheduleNotification
+  static showScheduleNotification({
+    required String date,
+    required int minutesBefore,
+  }) async {
     tz.initializeTimeZones();
     final TimezoneInfo currentTimeZone =
         await FlutterTimezone.getLocalTimezone();
+    final DateTime dateTime = DateFormat(
+      "EEEE, MMMM d, yyyy h:mm a",
+    ).parse(date);
+
     tz.setLocalLocation(tz.getLocation(currentTimeZone.identifier));
     await flutterLocalNotificationsPlugin.zonedSchedule(
       1,
-      "title",
-      "body",
-      // tz.TZDateTime.now(tz.local).add(Duration(seconds: 10)),
-      tz.TZDateTime(tz.local, 2025, 11, 20, 2, 18),
+      "Appointment Remnider",
+      "you have apointment at ${dateTime.month} ${dateTime.day} ${dateTime.hour}",
+      tz.TZDateTime.from(
+        dateTime,
+        tz.local,
+      ).subtract(Duration(minutes: minutesBefore)),
       NotificationDetails(
         android: AndroidNotificationDetails(
           'id1',
@@ -46,7 +56,7 @@ class NotificationService {
           priority: Priority.high,
         ),
       ),
-      payload: 'paload',
+      payload: 'payload',
       androidScheduleMode: AndroidScheduleMode.exactAllowWhileIdle,
     );
   }

@@ -1,5 +1,6 @@
 import 'package:doctor_appointment/core/helper/extension.dart';
 import 'package:doctor_appointment/core/networking/api_error_model.dart';
+import 'package:doctor_appointment/core/services/notification_service.dart';
 import 'package:doctor_appointment/core/utils/app_colors.dart';
 import 'package:doctor_appointment/core/utils/app_text_styles.dart';
 import 'package:doctor_appointment/feature/appointment/presentation/logic/cubit/doctor_aapointment_cubit.dart';
@@ -25,14 +26,21 @@ class StoreAppointmentBlocListener extends StatelessWidget {
             showDialog(
               context: context,
               builder:
-                  (context) =>  Center(
+                  (context) => Center(
                     child: CircularProgressIndicator(color: AppColors.blue),
                   ),
             );
           },
           storeAppointmentSucess: (storeAppointmentResponse) {
             context.pop();
-            successBookingAppointmentDialog(context,storeAppointmentResponse.data);
+            successBookingAppointmentDialog(
+              context,
+              storeAppointmentResponse.data,
+            );
+            NotificationService.showScheduleNotification(
+              date: storeAppointmentResponse.data.appointmentTime,
+              minutesBefore: 120,
+            );
           },
           storeAppointmentError: (apiErrorModel) {
             showErrorDialog(context, apiErrorModel);

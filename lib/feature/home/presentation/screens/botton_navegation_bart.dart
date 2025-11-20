@@ -1,7 +1,5 @@
 import 'package:doctor_appointment/core/di/depensency_injection.dart';
 import 'package:doctor_appointment/core/utils/app_colors.dart';
-import 'package:doctor_appointment/feature/appointment/presentation/logic/cubit/doctor_aapointment_cubit.dart';
-
 import 'package:doctor_appointment/feature/appointment/presentation/screens/all_my_appointment_screen.dart';
 import 'package:doctor_appointment/feature/home/presentation/logic/cubit/home_cubit.dart';
 import 'package:doctor_appointment/feature/home/presentation/screens/home_screen.dart';
@@ -31,11 +29,7 @@ class _BottomNavBarViewState extends State<BottomNavBarView> {
       create: (context) => ProfileCubit(getIt())..getProfile(),
       child: ProfileScreen(),
     ),
-    BlocProvider(
-      create:
-          (context) => DoctorAapointmentCubit(getIt())..getAllMyAppointments(),
-      child: AllMyAppointmentScreen(),
-    ),
+    AllMyAppointmentScreen(),
   ];
 
   int currentIndx = 0;
@@ -75,7 +69,7 @@ class _BottomNavBarViewState extends State<BottomNavBarView> {
                             child: Column(
                               children: [
                                 Icon(icons[index], color: AppColors.blue),
-        
+
                                 Text(
                                   lables[index],
                                   style: TextStyle(color: Colors.blue),
