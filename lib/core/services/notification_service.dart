@@ -32,7 +32,8 @@ class NotificationService {
       1,
       "title",
       "body",
-      tz.TZDateTime.now(tz.local).add(Duration(seconds: 10)),
+      // tz.TZDateTime.now(tz.local).add(Duration(seconds: 10)),
+      tz.TZDateTime(tz.getLocation('Africa/Cairo'), 2025, 11, 20, 1, 57),
       NotificationDetails(
         android: AndroidNotificationDetails(
           'id1',
