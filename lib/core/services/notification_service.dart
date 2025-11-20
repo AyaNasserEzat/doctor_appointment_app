@@ -21,8 +21,17 @@ class NotificationService {
       0,
       "title",
       "body",
+
       NotificationDetails(
-        android: AndroidNotificationDetails('id1', 'basic notifiation'),
+        android: AndroidNotificationDetails(
+          'id1',
+          'basic notifiation',
+          importance: Importance.max,
+          priority: Priority.max,
+          sound: RawResourceAndroidNotificationSound(
+            'reminder.mp3'.split('.').first,
+          ),
+        ),
       ),
     );
   }
@@ -54,6 +63,9 @@ class NotificationService {
           'basic notifiation',
           importance: Importance.max,
           priority: Priority.high,
+          sound: RawResourceAndroidNotificationSound(
+            'reminder.mp3'.split('.').first,
+          ),
         ),
       ),
       payload: 'payload',
