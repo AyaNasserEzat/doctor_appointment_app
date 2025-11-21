@@ -5,8 +5,8 @@ import 'package:doctor_appointment/core/utils/app_text_styles.dart';
 import 'package:flutter/material.dart';
 
 class ProfileTopBar extends StatelessWidget {
-  const ProfileTopBar({super.key});
-
+  const ProfileTopBar({super.key,required this.title});
+final String title;
   @override
   Widget build(BuildContext context) {
     return Stack(
@@ -36,7 +36,7 @@ class ProfileTopBar extends StatelessWidget {
         ),
         Positioned(
           top: 40,
-          child: Text(AppStrings.profile,style: AppTextStyles.interBoldWhite20,)),
+          child: Text(title,style: AppTextStyles.interBoldWhite20,)),
 
         Positioned(
           bottom: -40,

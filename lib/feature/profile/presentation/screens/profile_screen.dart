@@ -2,6 +2,7 @@ import 'package:doctor_appointment/core/helper/extension.dart';
 import 'package:doctor_appointment/core/routing/routes.dart';
 import 'package:doctor_appointment/core/utils/app_colors.dart';
 import 'package:doctor_appointment/core/utils/app_images.dart';
+import 'package:doctor_appointment/core/utils/app_strings.dart';
 import 'package:doctor_appointment/core/utils/app_text_styles.dart';
 import 'package:doctor_appointment/feature/profile/presentation/logic/cubit/profile_cubit.dart';
 import 'package:doctor_appointment/feature/profile/presentation/screens/widgets/get_profile_bloc_builder.dart';
@@ -17,7 +18,7 @@ class ProfileScreen extends StatelessWidget {
     return Scaffold(
       body: Column(
         children: [
-          ProfileTopBar(),
+          ProfileTopBar(title: AppStrings.profile,),
           SizedBox(height: 50),
           GetProfileBlocBuilder(),
           GestureDetector(
