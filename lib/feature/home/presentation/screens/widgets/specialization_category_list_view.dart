@@ -1,3 +1,4 @@
+import 'package:doctor_appointment/core/utils/app_images.dart';
 import 'package:doctor_appointment/feature/home/data/models/specialization_response.dart';
 import 'package:doctor_appointment/feature/home/presentation/logic/cubit/home_cubit.dart';
 import 'package:doctor_appointment/feature/home/presentation/screens/widgets/specialization_category_item.dart';
@@ -38,6 +39,7 @@ class _SpecializationCategoryListViewState
               ).getDoctorsBySpeceializationId(specialization!.id!);
             },
             child: SpecializationCategoryItem(
+              specialityImage: specialityImages[index],
               specialization: specialization,
               isSelectedIndex: selectedIndex == index,
             ),

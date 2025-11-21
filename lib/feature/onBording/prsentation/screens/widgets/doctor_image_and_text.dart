@@ -24,10 +24,10 @@ class DoctorImageAndText extends StatelessWidget {
               stops: const [0.14, 0.4],
             ),
           ),
-          child: Image.asset('assets/images/onboarding_doctor.png'),
+          child: Image.asset(AppImages.onBordinDoctor,height: 450,),
         ),
         Positioned(
-          bottom: 30,
+          bottom: 10,
           left: 0,
           right: 0,
           child: Text(
