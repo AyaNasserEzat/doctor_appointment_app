@@ -4,6 +4,8 @@ import 'package:doctor_appointment/feature/appointment/presentation/logic/cubit/
 import 'package:doctor_appointment/feature/appointment/presentation/screens/all_my_appointment_screen.dart';
 import 'package:doctor_appointment/feature/home/data/models/specialization_response.dart';
 import 'package:doctor_appointment/feature/appointment/presentation/screens/doctor_details_screen.dart';
+import 'package:doctor_appointment/feature/home/presentation/logic/cubit/home_cubit.dart';
+import 'package:doctor_appointment/feature/home/presentation/screens/all_specility_screen.dart';
 import 'package:doctor_appointment/feature/home/presentation/screens/botton_navegation_bart.dart';
 import 'package:doctor_appointment/feature/home/presentation/screens/home_screen.dart';
 import 'package:doctor_appointment/feature/login/prsentation/logic/cubit/login_cubit.dart';
@@ -64,10 +66,19 @@ class AppRouter {
                 child: UpdateProfileScreen(),
               ),
         );
-     case Routes.notificationScreen:
+      case Routes.notificationScreen:
         return MaterialPageRoute(builder: (_) => NotificationScreen());
       case Routes.bottomNavigationBar:
         return MaterialPageRoute(builder: (_) => BottomNavBarView());
+      case Routes.allSpecilityScreen:
+        return MaterialPageRoute(
+          builder:
+              (_) => BlocProvider(
+                create: (context) => HomeCubit(getIt())..getspecializationsState(),
+                child: AllSpecilityScreen(),
+              ),
+        );
+
       default:
         return null;
     }

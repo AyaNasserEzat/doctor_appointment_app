@@ -47,6 +47,7 @@ class SpecializationCategoryItem extends StatelessWidget {
           ),
         ],
       ),
+    
     );
   }
 }

@@ -1,3 +1,5 @@
+import 'package:doctor_appointment/core/helper/extension.dart';
+import 'package:doctor_appointment/core/routing/routes.dart';
 import 'package:doctor_appointment/core/utils/app_colors.dart';
 import 'package:doctor_appointment/core/utils/app_strings.dart';
 import 'package:doctor_appointment/core/utils/app_text_styles.dart';
@@ -15,9 +17,14 @@ class SeeAllDoctorSpecialityRow extends StatelessWidget {
           style: AppTextStyles.interBoldBlack18,
         ),
         Spacer(),
-        Text(
-          AppStrings.seeAll,
-          style: AppTextStyles.interRegular14.copyWith(color: AppColors.blue),
+        GestureDetector(
+          onTap: () {
+            context.pushNamed(Routes.allSpecilityScreen);
+          },
+          child: Text(
+            AppStrings.seeAll,
+            style: AppTextStyles.interRegular14.copyWith(color: AppColors.blue),
+          ),
         ),
       ],
     );
