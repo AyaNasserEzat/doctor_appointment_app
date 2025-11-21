@@ -19,6 +19,13 @@ class AppImages {
   static const String urology = "assets/images/urology.png";
   static const String gastroenterology = "assets/images/gastroenterology.png";
   static const String psychiartry = "assets/images/psychiartry.png";
+
+  static const String doctorImage2 = "assets/images/doctor_image2.jpg";
+  static const String doctorImage3 = "assets/images/doctor_test5.png";
+  static const String doctorImage4 = "assets/images/doctor_test4.png";
+  static const String doctorImage5 = "assets/images/doctor_test5.png";
+  static const String doctorImage6 = "assets/images/doctor_test6.png";
+
 }
 
 List<String> specialityImages = [
@@ -32,4 +39,17 @@ List<String> specialityImages = [
   AppImages.urology,
   AppImages.gastroenterology,
   AppImages.psychiartry,
+];
+
+List<String> doctorsImages = [
+  AppImages.docImagTest,
+  AppImages.doctorImage4,
+  AppImages.doctorImage5,
+  AppImages.doctorImage6,
+  AppImages.doctorImage2,
+  AppImages.doctorImage3,
+  AppImages.doctorImage2,
+  AppImages.doctorImage3,
+   AppImages.doctorImage2,
+  AppImages.doctorImage3,
 ];

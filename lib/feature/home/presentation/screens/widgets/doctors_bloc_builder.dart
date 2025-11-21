@@ -24,6 +24,7 @@ class DoctorsBlocBuilder extends StatelessWidget {
             return
                 DoctorsListView(
                   doctorsList: doctors ?? [],
+                  
                 
             );
           },

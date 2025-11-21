@@ -1,3 +1,4 @@
+import 'package:doctor_appointment/core/utils/app_images.dart';
 import 'package:doctor_appointment/feature/appointment/presentation/screens/widgets/doctor_top_bar.dart';
 import 'package:doctor_appointment/feature/appointment/presentation/screens/widgets/doctot_information.dart';
 import 'package:doctor_appointment/feature/appointment/presentation/screens/widgets/price_and_book_now_button.dart';
@@ -9,8 +10,12 @@ import 'package:flutter/material.dart';
 
 class DoctorDetailsScreen extends StatelessWidget {
   final Doctor doctor;
-
-  const DoctorDetailsScreen({super.key, required this.doctor});
+  final String doctorImage;
+  const DoctorDetailsScreen({
+    super.key,
+    required this.doctor,
+    this.doctorImage = AppImages.docImagTest,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -21,7 +26,7 @@ class DoctorDetailsScreen extends StatelessWidget {
             spacing: 15,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              DoctorTopBar(),
+              DoctorTopBar(doctorImage: doctorImage,),
               SizedBox(height: 20),
               DoctorInformation(doctor: doctor),
               SelectDateTextFormField(),
@@ -31,7 +36,7 @@ class DoctorDetailsScreen extends StatelessWidget {
               ),
               SizedBox(height: 110),
               PricAndBookNowButton(doctor: doctor),
-              StoreAppointmentBlocListener()
+              StoreAppointmentBlocListener(),
             ],
           ),
         ),

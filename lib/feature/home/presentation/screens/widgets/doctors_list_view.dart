@@ -1,5 +1,6 @@
 import 'package:doctor_appointment/core/helper/extension.dart';
 import 'package:doctor_appointment/core/routing/routes.dart';
+import 'package:doctor_appointment/core/utils/app_images.dart';
 import 'package:doctor_appointment/feature/home/data/models/specialization_response.dart';
 import 'package:doctor_appointment/feature/home/presentation/screens/widgets/doctor_item.dart';
 import 'package:flutter/material.dart';
@@ -16,9 +17,19 @@ class DoctorsListView extends StatelessWidget {
       itemBuilder: (context, index) {
         return GestureDetector(
           onTap: () {
-            context.pushNamed(Routes.doctorDetailsScreen,arguments: doctorsList![index]!);
+            context.pushNamed(
+              Routes.doctorDetailsScreen,
+              arguments: {
+                'doctor': doctorsList![index]!,
+                'doctorImage': doctorsImages[index],
+              },
+            );
           },
-          child: DoctorItem(doctorModel: doctorsList![index]!));
+          child: DoctorItem(
+            doctorModel: doctorsList![index]!,
+            doctorImage: doctorsImages[index],
+          ),
+        );
       },
     );
   }

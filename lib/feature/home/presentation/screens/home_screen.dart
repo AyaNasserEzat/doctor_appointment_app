@@ -22,7 +22,7 @@ class HomeScreen extends StatelessWidget {
               SeeAllDoctorSpecialityRow(),
               SizedBox(height: 16),
               SpecializationCategoriesBlocBuilder(),
-              SizedBox(height: 16),
+              SizedBox(height: 4),
               DoctorsBlocBuilder()
             ],
           ),

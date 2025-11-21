@@ -5,8 +5,8 @@ import 'package:doctor_appointment/core/utils/app_text_styles.dart';
 import 'package:flutter/material.dart';
 
 class DoctorTopBar extends StatelessWidget {
-  const DoctorTopBar({super.key});
-
+  const DoctorTopBar({super.key, this.doctorImage=AppImages.docImageHome});
+  final String doctorImage;
   @override
   Widget build(BuildContext context) {
     return Stack(
@@ -50,7 +50,7 @@ class DoctorTopBar extends StatelessWidget {
               color: AppColors.graybackground,
               borderRadius: BorderRadius.circular(16),
             ),
-            child: Image.asset(AppImages.docImageHome, height: 110),
+            child: Image.asset(doctorImage, height: 110),
           ),
         ),
       ],

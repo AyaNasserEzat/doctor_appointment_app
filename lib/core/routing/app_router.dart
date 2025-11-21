@@ -47,7 +47,9 @@ class AppRouter {
               (_) => BlocProvider(
                 create: (context) => DoctorAapointmentCubit(getIt()),
                 child: DoctorDetailsScreen(
-                  doctor: settings.arguments as Doctor,
+                  doctor: (settings.arguments as Map)['doctor'] as Doctor,
+                  doctorImage:
+                      (settings.arguments as Map)['doctorImage'] as String,
                 ),
               ),
         );
@@ -74,7 +76,8 @@ class AppRouter {
         return MaterialPageRoute(
           builder:
               (_) => BlocProvider(
-                create: (context) => HomeCubit(getIt())..getspecializationsState(),
+                create:
+                    (context) => HomeCubit(getIt())..getspecializationsState(),
                 child: AllSpecilityScreen(),
               ),
         );

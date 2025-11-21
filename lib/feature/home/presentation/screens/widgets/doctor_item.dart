@@ -4,8 +4,9 @@ import 'package:doctor_appointment/feature/home/data/models/specialization_respo
 import 'package:flutter/material.dart';
 
 class DoctorItem extends StatelessWidget {
-  const DoctorItem({super.key, required this.doctorModel});
+  const DoctorItem({super.key, required this.doctorModel,this.doctorImage=AppImages.docImagTest});
   final Doctor doctorModel;
+  final String doctorImage;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -13,7 +14,9 @@ class DoctorItem extends StatelessWidget {
       child: Row(
         spacing: 16,
         children: [
-          Image.asset(AppImages.docImagTest),
+          ClipRRect(
+            borderRadius: BorderRadiusGeometry.circular(16),
+            child: Image.asset(doctorImage,)),
           Expanded(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
