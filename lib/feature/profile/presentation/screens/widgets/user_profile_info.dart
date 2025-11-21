@@ -14,7 +14,6 @@ class UserProfileInfo extends StatelessWidget {
       children: [
         Text(userData.name, style: AppTextStyles.interBoldBlack18),
         Text(userData.email, style: AppTextStyles.interMedium12, maxLines: 1),
-        Text(userData.phone, style: AppTextStyles.interMedium14),
       ],
     );
   }

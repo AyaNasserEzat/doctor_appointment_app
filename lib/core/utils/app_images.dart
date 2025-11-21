@@ -28,7 +28,10 @@ class AppImages {
   static const String apointmentsIcon = "assets/images/apointments_icon.png";
  static const String profile = "assets/images/avatar.png";
  static const String homeIcon = "assets/images/home.png";
- //assets\images\home.png
+ static const String personalInfoIcon = "assets/images/personal_info_icon.png";
+ static const String notificationIcon = "assets/images/notification_icon.png";
+ static const String logout = "assets/images/logout.png";
+ //assets\images\logout.png
 
 }
 
