@@ -1,3 +1,4 @@
+import 'package:doctor_appointment/core/helper/constant.dart';
 import 'package:doctor_appointment/core/routing/app_router.dart';
 import 'package:doctor_appointment/core/routing/routes.dart';
 import 'package:doctor_appointment/core/utils/app_colors.dart';
@@ -10,6 +11,7 @@ class DoctorApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      navigatorKey: navigatorKey,
       theme: ThemeData(
         scaffoldBackgroundColor: AppColors.white
       ),

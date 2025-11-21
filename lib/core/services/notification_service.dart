@@ -1,3 +1,5 @@
+import 'package:doctor_appointment/core/helper/constant.dart';
+import 'package:doctor_appointment/core/routing/routes.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:intl/intl.dart';
 import 'package:timezone/timezone.dart' as tz;
@@ -13,7 +15,19 @@ class NotificationService {
     InitializationSettings initializationSettings = InitializationSettings(
       android: initializationSettingsAndroid,
     );
-    flutterLocalNotificationsPlugin.initialize(initializationSettings);
+    flutterLocalNotificationsPlugin.initialize(
+      initializationSettings,
+      onDidReceiveNotificationResponse: (NotificationResponse response) {
+        final String? payload = response.payload;
+
+        if (payload != null) {
+          navigatorKey.currentState?.pushNamed(
+            Routes.notificationScreen,
+            arguments: payload,
+          );
+        }
+      },
+    );
   }
 
   static showBasicNotification() async {
@@ -21,7 +35,7 @@ class NotificationService {
       0,
       "title",
       "body",
-
+payload: 'paylod',
       NotificationDetails(
         android: AndroidNotificationDetails(
           'id1',
