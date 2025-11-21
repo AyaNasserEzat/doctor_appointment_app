@@ -1,5 +1,6 @@
 import 'package:doctor_appointment/core/di/depensency_injection.dart';
 import 'package:doctor_appointment/core/utils/app_colors.dart';
+import 'package:doctor_appointment/core/utils/app_images.dart';
 import 'package:doctor_appointment/feature/appointment/presentation/screens/all_my_appointment_screen.dart';
 import 'package:doctor_appointment/feature/home/presentation/logic/cubit/home_cubit.dart';
 import 'package:doctor_appointment/feature/home/presentation/screens/home_screen.dart';
@@ -16,20 +17,25 @@ class BottomNavBarView extends StatefulWidget {
 }
 
 class _BottomNavBarViewState extends State<BottomNavBarView> {
-  final List<IconData?> icons = [Icons.home, Icons.person, Icons.dock];
+  final List<String> icons = [
+    AppImages.homeIcon,
+    AppImages.apointmentsIcon,
+    AppImages.profile,
+  ];
 
-  final List<String> lables = ['home', 'appoins', 'profile'];
+  final List<String> lables = ['home',  'appointments','profile',];
 
   final List<Widget> views = [
     BlocProvider(
       create: (context) => getIt<HomeCubit>()..getspecializationsState(),
       child: const HomeScreen(),
     ),
+     AllMyAppointmentScreen(),
     BlocProvider(
       create: (context) => ProfileCubit(getIt())..getProfile(),
       child: ProfileScreen(),
     ),
-    AllMyAppointmentScreen(),
+   
   ];
 
   int currentIndx = 0;
@@ -43,8 +49,15 @@ class _BottomNavBarViewState extends State<BottomNavBarView> {
         child: Container(
           height: 60,
           decoration: BoxDecoration(
-            color: AppColors.blue,
+            color: AppColors.white,
             borderRadius: BorderRadius.circular(24),
+            boxShadow: [
+              BoxShadow(
+                color: Colors.black.withOpacity(0.15),
+                blurRadius: 20,
+                offset: Offset(0, 8), // ظل لتحت
+              ),
+            ],
           ),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -56,37 +69,37 @@ class _BottomNavBarViewState extends State<BottomNavBarView> {
                 child:
                     currentIndx == index
                         ? Padding(
-                          padding: const EdgeInsets.all(3),
-                          child: Container(
-                            padding: EdgeInsets.symmetric(
-                              horizontal: 16,
-                              vertical: 5,
-                            ),
-                            decoration: BoxDecoration(
-                              color: Colors.white,
-                              borderRadius: BorderRadius.circular(24),
-                            ),
-                            child: Column(
-                              children: [
-                                Icon(icons[index], color: AppColors.blue),
+                          padding: const EdgeInsets.only(top: 10),
+                          child: Column(
+                            children: [
+                              Image.asset(
+                                icons[index],
+                                width: 20,
+                                color: AppColors.blue,
+                              ),
 
-                                Text(
-                                  lables[index],
-                                  style: TextStyle(color: Colors.blue),
-                                ),
-                              ],
-                            ),
+                              Text(
+                                lables[index],
+                                style: TextStyle(color: Colors.blue),
+                              ),
+                            ],
                           ),
                         )
-                        : Column(
-                          children: [
-                            Icon(icons[index], color: AppColors.white),
-                            // SizedBox(height: 6),
-                            Text(
-                              lables[index],
-                              style: TextStyle(color: Colors.white),
-                            ),
-                          ],
+                        : Padding(
+                          padding: const EdgeInsets.only(top: 10.0),
+                          child: Column(
+                            children: [
+                              Image.asset(
+                                icons[index],
+                                width: 20,
+                                color: AppColors.gray,
+                              ),
+                              Text(
+                                lables[index],
+                                style: TextStyle(color: Colors.grey),
+                              ),
+                            ],
+                          ),
                         ),
               );
             }),

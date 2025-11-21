@@ -25,6 +25,10 @@ class AppImages {
   static const String doctorImage4 = "assets/images/doctor_test4.png";
   static const String doctorImage5 = "assets/images/doctor_test5.png";
   static const String doctorImage6 = "assets/images/doctor_test6.png";
+  static const String apointmentsIcon = "assets/images/apointments_icon.png";
+ static const String profile = "assets/images/avatar.png";
+ static const String homeIcon = "assets/images/home.png";
+ //assets\images\home.png
 
 }
 
@@ -46,10 +50,10 @@ List<String> doctorsImages = [
   AppImages.doctorImage4,
   AppImages.doctorImage5,
   AppImages.doctorImage6,
-  AppImages.doctorImage2,
-  AppImages.doctorImage3,
-  AppImages.doctorImage2,
-  AppImages.doctorImage3,
-   AppImages.doctorImage2,
-  AppImages.doctorImage3,
+  AppImages.doctorImage4,
+  AppImages.doctorImage4,
+  AppImages.doctorImage5,
+  AppImages.doctorImage6,
+   AppImages.doctorImage4,
+  AppImages.doctorImage5,
 ];
