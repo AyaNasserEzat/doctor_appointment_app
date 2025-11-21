@@ -13,60 +13,58 @@ class ProfileScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Scaffold(
-        body: Column(
-          children: [
-            ProfileTopBar(),
-            SizedBox(height: 50),
-            GetProfileBlocBuilder(),
-            GestureDetector(
-              onTap: () {
-                context.pushNamed(Routes.updateProfileScreen).then((_) {
-                  context.read<ProfileCubit>().getProfile();
-                });
-              },
-              child: Row(
-                spacing: 10,
-                children: [
-                  Container(
-                    width: 30,
-                    height: 30,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(12),
-                      color: Colors.blue.shade100,
-                    ),
-                    child: Icon(Icons.edit, color: AppColors.white),
+    return Scaffold(
+      body: Column(
+        children: [
+          ProfileTopBar(),
+          SizedBox(height: 50),
+          GetProfileBlocBuilder(),
+          GestureDetector(
+            onTap: () {
+              context.pushNamed(Routes.updateProfileScreen).then((_) {
+                context.read<ProfileCubit>().getProfile();
+              });
+            },
+            child: Row(
+              spacing: 10,
+              children: [
+                Container(
+                  width: 30,
+                  height: 30,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(12),
+                    color: Colors.blue.shade100,
                   ),
-                  Text(
-                    "edit personal information",
-                    style: AppTextStyles.interBold16,
-                  ),
-                ],
-              ),
+                  child: Icon(Icons.edit, color: AppColors.white),
+                ),
+                Text(
+                  "edit personal information",
+                  style: AppTextStyles.interBold16,
+                ),
+              ],
             ),
-            GestureDetector(
-              onTap: () {
-                context.pushNamed(Routes.notificationScreen);
-              },
-              child: Row(
-                spacing: 10,
-                children: [
-                  Container(
-                    width: 30,
-                    height: 30,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(12),
-                      color: Colors.blue.shade100,
-                    ),
-                    child: Icon(Icons.edit, color: AppColors.white),
+          ),
+          GestureDetector(
+            onTap: () {
+              context.pushNamed(Routes.notificationScreen);
+            },
+            child: Row(
+              spacing: 10,
+              children: [
+                Container(
+                  width: 30,
+                  height: 30,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(12),
+                    color: Colors.blue.shade100,
                   ),
-                  Text("notifications", style: AppTextStyles.interBold16),
-                ],
-              ),
+                  child: Icon(Icons.edit, color: AppColors.white),
+                ),
+                Text("notifications", style: AppTextStyles.interBold16),
+              ],
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }

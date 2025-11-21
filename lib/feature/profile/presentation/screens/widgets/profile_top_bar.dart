@@ -25,7 +25,7 @@ class ProfileTopBar extends StatelessWidget {
           ),
         ),
         Positioned(
-          top: 10,
+          top: 30,
           left: 10,
           child: IconButton(
             onPressed: () {
@@ -35,7 +35,7 @@ class ProfileTopBar extends StatelessWidget {
           ),
         ),
         Positioned(
-          top: 20,
+          top: 40,
           child: Text(AppStrings.updateProfile,style: AppTextStyles.interBoldWhite20,)),
 
         Positioned(
