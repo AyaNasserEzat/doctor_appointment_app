@@ -38,4 +38,5 @@ class AppStrings {
 
   //
   static const String updateProfile = "Update Profile";
+  static const String profile = "Profile";
 }

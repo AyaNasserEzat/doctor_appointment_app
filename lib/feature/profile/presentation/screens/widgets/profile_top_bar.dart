@@ -36,7 +36,7 @@ class ProfileTopBar extends StatelessWidget {
         ),
         Positioned(
           top: 40,
-          child: Text(AppStrings.updateProfile,style: AppTextStyles.interBoldWhite20,)),
+          child: Text(AppStrings.profile,style: AppTextStyles.interBoldWhite20,)),
 
         Positioned(
           bottom: -40,
