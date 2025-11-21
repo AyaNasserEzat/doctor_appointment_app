@@ -12,21 +12,16 @@ class AllMyAppointmentScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create:(context) => DoctorAapointmentCubit(getIt())..getAllMyAppointments(),
-      child: SafeArea(
-        child: Scaffold(
-          backgroundColor: AppColors.extraLightGray,
-
-          //appBar: AppBar(title: Text('Appointment'),centerTitle: true,),
-          body: Padding(
-            padding: const EdgeInsets.only(top: 15.0),
-            child: Column(
-              children: [
-                Text('Appointmets', style: AppTextStyles.interBoldBlack18),
-                AllMyAppointmentBlocBuilder(),
-              ],
-            ),
-          ),
+      create:
+          (context) => DoctorAapointmentCubit(getIt())..getAllMyAppointments(),
+      child: Scaffold(
+        backgroundColor: AppColors.extraLightGray,
+        body: Column(
+          children: [
+            SizedBox(height: 30,),
+            Text('Appointmets', style: AppTextStyles.interBoldBlack18),
+            AllMyAppointmentBlocBuilder(),
+          ],
         ),
       ),
     );
