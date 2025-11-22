@@ -1,6 +1,7 @@
 import 'package:doctor_appointment/feature/home/presentation/logic/cubit/home_cubit.dart';
 import 'package:doctor_appointment/feature/home/presentation/logic/cubit/home_state.dart';
 import 'package:doctor_appointment/feature/home/presentation/screens/widgets/specialization_category_list_view.dart';
+import 'package:doctor_appointment/feature/home/presentation/screens/widgets/specialization_category_listview_skeletonzir.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -17,13 +18,16 @@ class SpecializationCategoriesBlocBuilder extends StatelessWidget {
               current is SpecializationsSuccess,
       builder: (context, state) {
         return state.maybeWhen(
-          specializationsLoading: () => CircularProgressIndicator(),
+          specializationsLoading: () {
+            return SpecializationCategoryListViewSkeletonzir();
+          },
           specializationsError:
               (apiErrorModel) => Text(apiErrorModel.message ?? "error"),
           specializationsSuccess: (specializationDataList) {
-            return SpecializationCategoryListView(
-              specializationDataList: specializationDataList ?? [],
-            );
+            return SpecializationCategoryListViewSkeletonzir();
+            //  SpecializationCategoryListView(
+            //   specializationDataList: specializationDataList ?? [],
+            // );
           },
           orElse: () => SizedBox.shrink(),
         );

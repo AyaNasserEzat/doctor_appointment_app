@@ -5,9 +5,39 @@ import 'package:doctor_appointment/feature/home/data/models/specialization_respo
 import 'package:doctor_appointment/feature/home/presentation/screens/widgets/doctor_item.dart';
 import 'package:flutter/material.dart';
 
+// class DoctorsListView extends StatelessWidget {
+//   const DoctorsListView({super.key, required this.doctorsList});
+//   final List<Doctor?>? doctorsList;
+//   @override
+//   Widget build(BuildContext context) {
+//     return ListView.builder(
+//       itemCount: doctorsList!.length,
+//       shrinkWrap: true,
+//       physics: const NeverScrollableScrollPhysics(),
+//       itemBuilder: (context, index) {
+//         return GestureDetector(
+//           onTap: () {
+//             context.pushNamed(
+//               Routes.doctorDetailsScreen,
+//               arguments: {
+//                 'doctor': doctorsList![index]!,
+//                 'doctorImage': doctorsImages[index],
+//               },
+//             );
+//           },
+//           child: DoctorItem(
+//             doctorModel: doctorsList![index]!,
+//             doctorImage: doctorsImages[index],
+//           ),
+//         );
+//       },
+//     );
+//   }
+// }
 class DoctorsListView extends StatelessWidget {
   const DoctorsListView({super.key, required this.doctorsList});
   final List<Doctor?>? doctorsList;
+
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
@@ -15,20 +45,11 @@ class DoctorsListView extends StatelessWidget {
       shrinkWrap: true,
       physics: const NeverScrollableScrollPhysics(),
       itemBuilder: (context, index) {
-        return GestureDetector(
-          onTap: () {
-            context.pushNamed(
-              Routes.doctorDetailsScreen,
-              arguments: {
-                'doctor': doctorsList![index]!,
-                'doctorImage': doctorsImages[index],
-              },
-            );
-          },
-          child: DoctorItem(
-            doctorModel: doctorsList![index]!,
-            doctorImage: doctorsImages[index],
-          ),
+        final doctor = doctorsList![index];
+
+        return DoctorItem(
+          doctorModel: doctor,                       // ممكن يكون null أثناء اللود
+          doctorImage: doctorsImages[index],
         );
       },
     );

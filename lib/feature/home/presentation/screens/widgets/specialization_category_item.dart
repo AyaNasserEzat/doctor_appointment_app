@@ -1,6 +1,7 @@
 import 'package:doctor_appointment/core/utils/app_text_styles.dart';
 import 'package:doctor_appointment/feature/home/data/models/specialization_response.dart';
 import 'package:flutter/material.dart';
+import 'package:skeletonizer/skeletonizer.dart';
 
 class SpecializationCategoryItem extends StatelessWidget {
   const SpecializationCategoryItem({
@@ -16,6 +17,8 @@ class SpecializationCategoryItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final bool isSkeleton = Skeletonizer.maybeOf(context)?.enabled ?? false;
+
     return Padding(
       padding: const EdgeInsets.only(right: 20.0),
       child: Column(
@@ -27,13 +30,20 @@ class SpecializationCategoryItem extends StatelessWidget {
               border: Border.all(
                 width: 1.4,
                 color:
-                    isSelectedIndex ? Colors.blue.shade300 : Color(0xffF4F8FF),
+                    isSkeleton
+                        ? Color(0xffF4F8FF)
+                        : isSelectedIndex
+                        ? Colors.blue.shade300
+                        : Color(0xffF4F8FF),
               ),
+
               color: Color(0xffF4F8FF),
               shape: BoxShape.circle,
             ),
             child: Center(
-              child: Image.asset(specialityImage, height: 40, width: 40),
+              child: Skeleton.replace(
+                child: Image.asset(specialityImage, height: 40, width: 40),
+              ),
             ),
           ),
 
@@ -47,7 +57,6 @@ class SpecializationCategoryItem extends StatelessWidget {
           ),
         ],
       ),
-    
     );
   }
 }
