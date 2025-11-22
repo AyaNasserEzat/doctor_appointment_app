@@ -21,17 +21,15 @@ class DoctorItem extends StatelessWidget {
       child: Row(
         spacing: 16,
         children: [
-          Skeleton.leaf(
-                child: ClipRRect(
-                  borderRadius: BorderRadius.circular(16),
-                  child: Image.asset(
-                    doctorImage,
-                    height: 80,
-                    width: 80,
-                    fit: BoxFit.cover,
-                  ),
-                ),
-              ),
+          ClipRRect(
+            borderRadius: BorderRadius.circular(16),
+            child: Image.asset(
+              doctorImage,
+              height: 80,
+              width: 80,
+              fit: BoxFit.cover,
+            ),
+          ),
 
           Expanded(
             child: Column(
