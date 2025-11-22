@@ -1,3 +1,5 @@
+import 'package:doctor_appointment/core/helper/extension.dart';
+import 'package:doctor_appointment/core/routing/routes.dart';
 import 'package:doctor_appointment/core/utils/app_images.dart';
 import 'package:doctor_appointment/feature/home/data/models/specialization_response.dart';
 import 'package:doctor_appointment/feature/home/presentation/screens/widgets/doctor_item.dart';
@@ -16,9 +18,20 @@ class DoctorsListView extends StatelessWidget {
       itemBuilder: (context, index) {
         final doctor = doctorsList![index];
 
-        return DoctorItem(
-          doctorModel: doctor,                     
-          doctorImage: doctorsImages[index],
+        return GestureDetector(
+          onTap: () {
+            context.pushNamed(
+              Routes.doctorDetailsScreen,
+              arguments: {
+                'doctor': doctorsList![index]!,
+                'doctorImage': doctorsImages[index],
+              },
+            );
+          },
+          child: DoctorItem(
+            doctorModel: doctor,
+            doctorImage: doctorsImages[index],
+          ),
         );
       },
     );

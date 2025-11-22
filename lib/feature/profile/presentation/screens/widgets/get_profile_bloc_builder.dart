@@ -1,8 +1,10 @@
+import 'package:doctor_appointment/feature/profile/data/models/profile_response.dart';
 import 'package:doctor_appointment/feature/profile/presentation/logic/cubit/profile_cubit.dart';
 import 'package:doctor_appointment/feature/profile/presentation/logic/cubit/profile_state.dart';
 import 'package:doctor_appointment/feature/profile/presentation/screens/widgets/user_profile_info.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:skeletonizer/skeletonizer.dart';
 
 class GetProfileBlocBuilder extends StatelessWidget {
   const GetProfileBlocBuilder({super.key});
@@ -17,7 +19,9 @@ class GetProfileBlocBuilder extends StatelessWidget {
               current is GetProfileLoading,
       builder: (context, state) {
         return state.maybeWhen(
-          getProfileLoading: () => CircularProgressIndicator(),
+          getProfileLoading: () => Skeletonizer(
+            enabled: true,
+            child: UserProfileInfo(userData:UserData(id: 0, name: 'loading....', email: 'loading....', phone: '', gender: ''))),
           getProfileError:
               (apiErrorModel) => Text(apiErrorModel.message ?? "error"),
           getProfileSuccess: (getProfileResponse) {
