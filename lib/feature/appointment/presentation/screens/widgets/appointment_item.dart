@@ -4,6 +4,7 @@ import 'package:doctor_appointment/feature/appointment/presentation/screens/widg
 import 'package:doctor_appointment/feature/appointment/presentation/screens/widgets/cancel_or_reschedule.dart';
 import 'package:doctor_appointment/feature/appointment/presentation/screens/widgets/doctor_appointment_info.dart';
 import 'package:flutter/material.dart';
+import 'package:skeletonizer/skeletonizer.dart';
 
 class AppointmentItem extends StatelessWidget {
   const AppointmentItem({super.key, required this.appointmentDataModel});

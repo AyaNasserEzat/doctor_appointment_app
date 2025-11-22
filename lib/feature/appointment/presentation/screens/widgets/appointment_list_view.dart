@@ -7,15 +7,13 @@ class AppointmentListView extends StatelessWidget {
   final List<AppointmentData> apointmentDataList;
   @override
   Widget build(BuildContext context) {
-    return Expanded(
-      child: ListView.builder(
-        itemCount: apointmentDataList.length,
-        itemBuilder: (context, index) {
-          return AppointmentItem(
-            appointmentDataModel: apointmentDataList[index],
-          );
-        },
-      ),
+    return ListView.builder(
+      itemCount: apointmentDataList.length,
+      itemBuilder: (context, index) {
+        return AppointmentItem(
+          appointmentDataModel: apointmentDataList[index],
+        );
+      },
     );
   }
 }

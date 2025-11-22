@@ -20,7 +20,7 @@ class AllMyAppointmentScreen extends StatelessWidget {
           children: [
             SizedBox(height: 30,),
             Text('Appointmets', style: AppTextStyles.interBoldBlack18),
-            AllMyAppointmentBlocBuilder(),
+            Expanded(child: AllMyAppointmentBlocBuilder()),
           ],
         ),
       ),
