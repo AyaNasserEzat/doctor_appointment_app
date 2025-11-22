@@ -17,31 +17,27 @@ class SpecializationCategoryItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final bool isSkeleton = Skeletonizer.maybeOf(context)?.enabled ?? false;
-
     return Padding(
       padding: const EdgeInsets.only(right: 20.0),
       child: Column(
         children: [
-          Container(
-            height: 70,
-            width: 70,
-            decoration: BoxDecoration(
-              border: Border.all(
-                width: 1.4,
-                color:
-                    isSkeleton
-                        ? Color(0xffF4F8FF)
-                        : isSelectedIndex
-                        ? Colors.blue.shade300
-                        : Color(0xffF4F8FF),
-              ),
+          Skeleton.leaf(
+            child: Container(
+              height: 70,
+              width: 70,
+              decoration: BoxDecoration(
+                border: Border.all(
+                  width: 1.4,
+                  color:
+                      isSelectedIndex
+                          ? Colors.blue.shade300
+                          : Color(0xffF4F8FF),
+                ),
 
-              color: Color(0xffF4F8FF),
-              shape: BoxShape.circle,
-            ),
-            child: Center(
-              child: Skeleton.replace(
+                color: Color(0xffF4F8FF),
+                shape: BoxShape.circle,
+              ),
+              child: Center(
                 child: Image.asset(specialityImage, height: 40, width: 40),
               ),
             ),

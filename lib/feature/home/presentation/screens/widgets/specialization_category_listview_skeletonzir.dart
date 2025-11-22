@@ -13,10 +13,6 @@ class SpecializationCategoryListViewSkeletonzir extends StatelessWidget {
       6,
       (index) => SpecializationData(name: "Loading..."),
     );
-    final fakeListdoctors = List.generate(
-      6,
-      (index) => Doctor(name: "Loading..."),
-    );
     return Column(
       children: [
         Skeletonizer(
@@ -28,7 +24,7 @@ class SpecializationCategoryListViewSkeletonzir extends StatelessWidget {
         SizedBox(height: 10),
         Skeletonizer(
           enabled: true,
-          child: DoctorsListView(doctorsList: List.filled(5, null))
+          child: DoctorsListView(doctorsList: List.filled(5, null)),
         ),
       ],
     );

@@ -24,10 +24,9 @@ class SpecializationCategoriesBlocBuilder extends StatelessWidget {
           specializationsError:
               (apiErrorModel) => Text(apiErrorModel.message ?? "error"),
           specializationsSuccess: (specializationDataList) {
-            return SpecializationCategoryListViewSkeletonzir();
-            //  SpecializationCategoryListView(
-            //   specializationDataList: specializationDataList ?? [],
-            // );
+            return SpecializationCategoryListView(
+              specializationDataList: specializationDataList ?? [],
+            );
           },
           orElse: () => SizedBox.shrink(),
         );
