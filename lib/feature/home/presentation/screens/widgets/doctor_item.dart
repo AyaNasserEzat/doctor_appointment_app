@@ -2,7 +2,6 @@ import 'package:doctor_appointment/core/utils/app_images.dart';
 import 'package:doctor_appointment/core/utils/app_text_styles.dart';
 import 'package:doctor_appointment/feature/home/data/models/specialization_response.dart';
 import 'package:flutter/material.dart';
-import 'package:skeletonizer/skeletonizer.dart';
 
 class DoctorItem extends StatelessWidget {
   const DoctorItem({
