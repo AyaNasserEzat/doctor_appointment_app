@@ -10,6 +10,8 @@ import 'package:doctor_appointment/feature/login/data/repos/login_repo.dart';
 import 'package:doctor_appointment/feature/login/prsentation/logic/cubit/login_cubit.dart';
 import 'package:doctor_appointment/feature/profile/data/api_service/profile_api_service.dart';
 import 'package:doctor_appointment/feature/profile/data/repos/profile_repo.dart';
+import 'package:doctor_appointment/feature/search/data/api/search_api_service.dart';
+import 'package:doctor_appointment/feature/search/data/repo/search_repo.dart';
 import 'package:doctor_appointment/feature/signUp/data/repos/sign_up_repo.dart';
 import 'package:doctor_appointment/feature/signUp/presentation/logic/cubit/signup_cubit.dart';
 import 'package:get_it/get_it.dart';
@@ -40,10 +42,10 @@ void setUpGetIt() {
   );
 
   //profile
-  getIt.registerLazySingleton<ProfileApiService>(
-    () => ProfileApiService(dio),
-  );
-  getIt.registerLazySingleton<ProfileRepo>(
-    () => ProfileRepo(getIt()),
-  );
+  getIt.registerLazySingleton<ProfileApiService>(() => ProfileApiService(dio));
+  getIt.registerLazySingleton<ProfileRepo>(() => ProfileRepo(getIt()));
+
+  //search
+  getIt.registerLazySingleton<SearchApiService>(() => SearchApiService(dio));
+  getIt.registerLazySingleton<SearchRepo>(() => SearchRepo(getIt()));
 }

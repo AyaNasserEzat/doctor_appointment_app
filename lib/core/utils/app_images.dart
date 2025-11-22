@@ -31,7 +31,8 @@ class AppImages {
  static const String personalInfoIcon = "assets/images/personal_info_icon.png";
  static const String notificationIcon = "assets/images/notification_icon.png";
  static const String logout = "assets/images/logout.png";
- //assets\images\logout.png
+ static const String search = "assets/images/search.png";
+ //assets\images\search.png
 
 }
 

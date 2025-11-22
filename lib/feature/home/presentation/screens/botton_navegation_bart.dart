@@ -6,6 +6,7 @@ import 'package:doctor_appointment/feature/home/presentation/logic/cubit/home_cu
 import 'package:doctor_appointment/feature/home/presentation/screens/home_screen.dart';
 import 'package:doctor_appointment/feature/profile/presentation/logic/cubit/profile_cubit.dart';
 import 'package:doctor_appointment/feature/profile/presentation/screens/profile_screen.dart';
+import 'package:doctor_appointment/feature/search/presentation/screens/search_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -19,17 +20,19 @@ class BottomNavBarView extends StatefulWidget {
 class _BottomNavBarViewState extends State<BottomNavBarView> {
   final List<String> icons = [
     AppImages.homeIcon,
+    AppImages.search,
     AppImages.apointmentsIcon,
     AppImages.profile,
   ];
 
-  final List<String> lables = ['home',  'appointments','profile',];
+  final List<String> lables = ['home',  'search','appointments','profile',];
 
   final List<Widget> views = [
     BlocProvider(
       create: (context) => getIt<HomeCubit>()..getspecializationsState(),
       child: const HomeScreen(),
     ),
+    SearchScreen(),
      AllMyAppointmentScreen(),
     BlocProvider(
       create: (context) => ProfileCubit(getIt())..getProfile(),

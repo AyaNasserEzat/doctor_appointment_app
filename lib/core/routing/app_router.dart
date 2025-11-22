@@ -15,6 +15,7 @@ import 'package:doctor_appointment/feature/profile/presentation/logic/cubit/prof
 import 'package:doctor_appointment/feature/profile/presentation/screens/profile_screen.dart';
 import 'package:doctor_appointment/feature/profile/presentation/screens/update_profile_screen.dart';
 import 'package:doctor_appointment/feature/profile/presentation/screens/widgets/notification_screen.dart';
+import 'package:doctor_appointment/feature/search/presentation/screens/search_screen.dart';
 import 'package:doctor_appointment/feature/signUp/presentation/logic/cubit/signup_cubit.dart';
 import 'package:doctor_appointment/feature/signUp/presentation/screens/sign_up_screen.dart';
 import 'package:flutter/material.dart';
@@ -81,6 +82,9 @@ class AppRouter {
                 child: AllSpecilityScreen(),
               ),
         );
+      case Routes.searchScreen:
+        return MaterialPageRoute(builder: (_) => SearchScreen());
+
 
       default:
         return null;

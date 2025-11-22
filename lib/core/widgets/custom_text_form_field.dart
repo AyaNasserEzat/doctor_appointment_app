@@ -10,13 +10,16 @@ class CustomTextFormField extends StatefulWidget {
     this.isObscureText,
     this.suffixIcon,
     this.validator,
+    this.onChange,
+    this.fillColor = AppColors.textfieldfillColor,
   });
   final String hintText;
   final TextEditingController? controller;
   final Widget? suffixIcon;
   final bool? isObscureText;
   final Function(String?)? validator;
-
+  final Function(String?)? onChange;
+  final Color fillColor;
   @override
   State<CustomTextFormField> createState() => _CustomTextFormFieldState();
 }
@@ -29,8 +32,10 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
       controller: widget.controller,
       obscureText: widget.isObscureText == true ? _isHidden : false,
       validator: (value) {
-  return widget.validator?.call(value);
-},
+        return widget.validator?.call(value);
+      },onChanged: (value) {
+        return widget.onChange?.call(value);
+      },
 
       decoration: InputDecoration(
         suffixIcon:
@@ -51,7 +56,7 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
         hintText: widget.hintText,
         hintStyle: AppTextStyles.interMedium14,
         filled: true,
-        fillColor: AppColors.textfieldfillColor,
+        fillColor: widget.fillColor,
         enabledBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(16),
           borderSide: BorderSide(color: AppColors.border, width: 1.3),
