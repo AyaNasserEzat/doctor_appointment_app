@@ -1,3 +1,4 @@
+import 'package:doctor_appointment/core/utils/app_colors.dart';
 import 'package:doctor_appointment/core/utils/app_text_styles.dart';
 import 'package:flutter/material.dart';
 
@@ -41,6 +42,8 @@ class ProfileOptionItem extends StatelessWidget {
               ),
             ),
             Text(title, style: AppTextStyles.interBold16),
+            Spacer(),
+            Icon(Icons.arrow_forward_ios,size: 18,color: AppColors.gray,)
           ],
         ),
       ),
