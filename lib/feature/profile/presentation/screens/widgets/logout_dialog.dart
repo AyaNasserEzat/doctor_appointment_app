@@ -25,9 +25,14 @@ Future<dynamic> showLogoutDialog(BuildContext context) async {
               spacing: 10,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text('Confirm Logout', style: AppTextStyles.interBold24.copyWith(color: AppColors.blue)),
-               
-               Divider(thickness: 1.3,color: AppColors.extraLightGray,),
+                Text(
+                  'Confirm Logout',
+                  style: AppTextStyles.interBold24.copyWith(
+                    color: AppColors.blue,
+                  ),
+                ),
+
+                Divider(thickness: 1.3, color: AppColors.extraLightGray),
                 Text(
                   'Are you shoure you want Log Out?',
                   style: AppTextStyles.interMedium12.copyWith(
@@ -39,6 +44,28 @@ Future<dynamic> showLogoutDialog(BuildContext context) async {
                   mainAxisAlignment: MainAxisAlignment.end,
                   spacing: 10,
                   children: [
+                    TextButton(
+                      onPressed: () {
+                        Navigator.pop(context);
+                      },
+                      style: ButtonStyle(
+                        shape: WidgetStateProperty.all<RoundedRectangleBorder>(
+                          RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(16.0),
+                            side: BorderSide(
+                              color: AppColors.border,
+                              width: 1.3,
+                            ),
+                          ),
+                        ),
+                        backgroundColor: WidgetStateProperty.all(
+                          AppColors.white,
+                        ),
+                        fixedSize: WidgetStateProperty.all(Size(100, 30)),
+                      ),
+                      child: Text('Cancel ', style: AppTextStyles.interBold14),
+                    ),
+
                     TextButton(
                       onPressed: () async {
                         context.pushReplacementNamed(Routes.loginScreen);
@@ -58,24 +85,6 @@ Future<dynamic> showLogoutDialog(BuildContext context) async {
                         fixedSize: WidgetStateProperty.all(Size(100, 30)),
                       ),
                       child: Text('Ok', style: AppTextStyles.interBoldWhite20),
-                    ),
-                    TextButton(
-                      onPressed: () {
-                        Navigator.pop(context);
-                      },
-                      style: ButtonStyle(
-                        shape: WidgetStateProperty.all<RoundedRectangleBorder>(
-                          RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(16.0),
-                            side: BorderSide(color: AppColors.border,width: 1.3),
-                          ),
-                        ),
-                        backgroundColor: WidgetStateProperty.all(
-                          AppColors.white,
-                        ),
-                        fixedSize: WidgetStateProperty.all(Size(100, 30)),
-                      ),
-                      child: Text('Cancel ', style: AppTextStyles.interBold14),
                     ),
                   ],
                 ),
