@@ -59,12 +59,17 @@ dependencies:
   # provides API to store data in secure storage.
   flutter_secure_storage: ^9.2.2
   # easy way to add shimmer effect
-  shimmer: ^3.0.0
+  skeletonizer: ^2.1.0+1
+  #for flutter local notifications
   intl: ^0.20.2
   flutter_local_notifications: ^19.5.0
   timezone: ^0.10.1
   flutter_timezone: ^5.0.1
-  skeletonizer: ^2.1.0+1
+  # for flutte native splash
+  flutter_native_splash: ^2.4.7
+  flutter_launcher_icons: ^0.14.4
+
+  
   
 
   
@@ -125,3 +130,15 @@ flutter:
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/to/font-from-package
+flutter_native_splash:
+ color: "#ffffff"
+ image: "assets/images/splash.png"
+ android: true
+ ios: true
+
+
+
+flutter_launcher_icons:
+ android: true
+ ios: true
+ image_path: "assets/images/app.png"
