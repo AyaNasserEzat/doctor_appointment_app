@@ -3,10 +3,13 @@ import 'package:doctor_appointment/core/routing/routes.dart';
 import 'package:doctor_appointment/core/utils/app_colors.dart';
 import 'package:doctor_appointment/core/utils/app_images.dart';
 import 'package:doctor_appointment/core/utils/app_strings.dart';
+import 'package:doctor_appointment/feature/profile/presentation/logic/cubit/profile_cubit.dart';
 import 'package:doctor_appointment/feature/profile/presentation/screens/widgets/get_profile_bloc_builder.dart';
+import 'package:doctor_appointment/feature/profile/presentation/screens/widgets/logout_dialog.dart';
 import 'package:doctor_appointment/feature/profile/presentation/screens/widgets/profile_option_item.dart';
 import 'package:doctor_appointment/feature/profile/presentation/screens/widgets/profile_top_bar.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class ProfileScreen extends StatelessWidget {
   const ProfileScreen({super.key});
@@ -26,7 +29,9 @@ class ProfileScreen extends StatelessWidget {
             image: AppImages.personalInfoIcon,
             imageColor: AppColors.blue,
             backgroundContainer: Color(0xffEAF2FF),
-            onTap: () {},
+            onTap: () {
+              context.pushNamed(Routes.updateProfileScreen);
+            },
           ),
 
           // Notifications
@@ -46,7 +51,11 @@ class ProfileScreen extends StatelessWidget {
             image: AppImages.apointmentsIcon,
             imageColor: AppColors.gray,
             backgroundContainer: AppColors.extraLightGray,
-            onTap: () {},
+            onTap: () {
+              context.pushNamed(Routes.allMyAppointmentScreen).then((_){
+                BlocProvider.of<ProfileCubit>(context).getProfile();
+              });
+            },
           ),
 
           // Logout
@@ -55,7 +64,9 @@ class ProfileScreen extends StatelessWidget {
             image: AppImages.logout,
             imageColor: AppColors.red,
             backgroundContainer: Color(0xffFFEEEF),
-            onTap: () {},
+            onTap: () {
+              showLogoutDialog(context);
+            },
           ),
         ],
       ),

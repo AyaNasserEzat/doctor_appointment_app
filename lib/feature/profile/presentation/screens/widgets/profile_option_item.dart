@@ -1,9 +1,5 @@
-import 'package:doctor_appointment/core/helper/extension.dart';
-import 'package:doctor_appointment/core/routing/routes.dart';
 import 'package:doctor_appointment/core/utils/app_text_styles.dart';
-import 'package:doctor_appointment/feature/profile/presentation/logic/cubit/profile_cubit.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 
 class ProfileOptionItem extends StatelessWidget {
   const ProfileOptionItem({
@@ -22,11 +18,7 @@ class ProfileOptionItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () {
-        context.pushNamed(Routes.updateProfileScreen).then((_) {
-          BlocProvider.of<ProfileCubit>(context).getProfile();
-        });
-      },
+      onTap:onTap ,
       child: Padding(
         padding: const EdgeInsets.all(12.0),
         child: Row(
