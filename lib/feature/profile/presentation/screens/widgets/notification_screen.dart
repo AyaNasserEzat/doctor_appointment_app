@@ -3,10 +3,11 @@ import 'package:doctor_appointment/core/utils/app_colors.dart';
 import 'package:doctor_appointment/core/utils/app_images.dart';
 import 'package:doctor_appointment/core/utils/app_text_styles.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 
 class NotificationScreen extends StatelessWidget {
-  const NotificationScreen({super.key});
-
+  const NotificationScreen({super.key, required this.notificationResponse});
+final NotificationResponse notificationResponse;
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -40,7 +41,7 @@ class NotificationScreen extends StatelessWidget {
                   ),
                 ),
           
-                title: Text('title', style: AppTextStyles.interBold16),
+                title: Text(notificationResponse.payload??"mo", style: AppTextStyles.interBold16),
                 subtitle: Text('xgdg', style: AppTextStyles.interMedium14),
                 trailing: IconButton(
                   onPressed: () {

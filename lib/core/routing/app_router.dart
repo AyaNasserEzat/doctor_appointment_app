@@ -20,6 +20,7 @@ import 'package:doctor_appointment/feature/signUp/presentation/logic/cubit/signu
 import 'package:doctor_appointment/feature/signUp/presentation/screens/sign_up_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 
 class AppRouter {
   static Route? generateRout(RouteSettings settings) {
@@ -70,7 +71,13 @@ class AppRouter {
               ),
         );
       case Routes.notificationScreen:
-        return MaterialPageRoute(builder: (_) => NotificationScreen());
+        return MaterialPageRoute(
+          builder:
+              (_) => NotificationScreen(
+                notificationResponse:
+                    settings.arguments as NotificationResponse,
+              ),
+        );
       case Routes.bottomNavigationBar:
         return MaterialPageRoute(builder: (_) => BottomNavBarView());
       case Routes.allSpecilityScreen:
@@ -84,7 +91,6 @@ class AppRouter {
         );
       case Routes.searchScreen:
         return MaterialPageRoute(builder: (_) => SearchScreen());
-
 
       default:
         return null;

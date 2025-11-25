@@ -32,12 +32,12 @@ class EmptyAppoinmentBodey extends StatelessWidget {
           ),
           Text(
             AppStrings.titleEmptyAppointment,
-            style: AppTextStyles.interBold24,
+            style: AppTextStyles.interBold24.copyWith(color: Colors.blue),
           ),
           Text(
             AppStrings.subTitleEmptyAppointment,
             textAlign: TextAlign.center,
-            style: AppTextStyles.interMedium16,
+            style: AppTextStyles.interMedium16.copyWith(color: AppColors.blue),
           ),
         ],
       ),
