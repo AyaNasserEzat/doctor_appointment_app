@@ -12,9 +12,9 @@ import 'package:doctor_appointment/feature/login/prsentation/logic/cubit/login_c
 import 'package:doctor_appointment/feature/login/prsentation/screens/login_screen.dart';
 import 'package:doctor_appointment/feature/onBording/prsentation/screens/on_bording_screen.dart';
 import 'package:doctor_appointment/feature/profile/presentation/logic/cubit/profile_cubit.dart';
+import 'package:doctor_appointment/feature/profile/presentation/screens/notification_screen.dart';
 import 'package:doctor_appointment/feature/profile/presentation/screens/profile_screen.dart';
 import 'package:doctor_appointment/feature/profile/presentation/screens/update_profile_screen.dart';
-import 'package:doctor_appointment/feature/profile/presentation/screens/widgets/notification_screen.dart';
 import 'package:doctor_appointment/feature/search/presentation/screens/search_screen.dart';
 import 'package:doctor_appointment/feature/signUp/presentation/logic/cubit/signup_cubit.dart';
 import 'package:doctor_appointment/feature/signUp/presentation/screens/sign_up_screen.dart';
@@ -72,7 +72,9 @@ class AppRouter {
       case Routes.notificationScreen:
         return MaterialPageRoute(
           builder:
-              (_) =>NotificationsScreen() /*NotificationScreen(payload: settings.arguments as String?)*/,
+              (_) => NotificationScreen(
+                payload: settings.arguments as String?,
+              ) /*NotificationScreen(payload: settings.arguments as String?)*/,
         );
       case Routes.bottomNavigationBar:
         return MaterialPageRoute(builder: (_) => BottomNavBarView());
