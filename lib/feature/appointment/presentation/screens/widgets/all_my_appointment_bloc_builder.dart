@@ -1,8 +1,10 @@
+import 'package:doctor_appointment/core/utils/app_images.dart';
+import 'package:doctor_appointment/core/utils/app_strings.dart';
 import 'package:doctor_appointment/feature/appointment/presentation/logic/cubit/doctor_aapointment_cubit.dart';
 import 'package:doctor_appointment/feature/appointment/presentation/logic/cubit/doctor_aapointment_state.dart';
 import 'package:doctor_appointment/feature/appointment/presentation/screens/widgets/appointment_list_view.dart';
 import 'package:doctor_appointment/feature/appointment/presentation/screens/widgets/appointment_listview_skeletonizer.dart';
-import 'package:doctor_appointment/feature/appointment/presentation/screens/widgets/empty_appoinment_bodey.dart';
+import 'package:doctor_appointment/feature/appointment/presentation/screens/widgets/empty_bodey.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -27,7 +29,11 @@ class AllMyAppointmentBlocBuilder extends StatelessWidget {
           getallAppointmentSuccess: (getAllAppointmentsResponse) {
             final list = getAllAppointmentsResponse.data;
             if (list.isEmpty) {
-              return const EmptyAppoinmentBodey();
+              return const EmptyBodey(
+                image: AppImages.emptyAppointmentImage,
+                title: AppStrings.titleEmptyAppointment,
+                subtitle: AppStrings.subTitleEmptyAppointment,
+              );
             }
             return AppointmentListView(apointmentDataList: list);
           },

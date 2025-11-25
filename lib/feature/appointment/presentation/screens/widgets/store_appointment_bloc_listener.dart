@@ -38,9 +38,10 @@ class StoreAppointmentBlocListener extends StatelessWidget {
               storeAppointmentResponse.data,
             );
             NotificationService.showScheduleNotification(
-              date: storeAppointmentResponse.data.appointmentTime,
+             // date: storeAppointmentResponse.data.appointmentTime,
+             date: 'Tuesday, November 25, 2025 9:19 PM',
               docName:storeAppointmentResponse.data.doctor.name ,
-              minutesBefore: 120,
+              minutesBefore: 1,
             );
           },
           storeAppointmentError: (apiErrorModel) {

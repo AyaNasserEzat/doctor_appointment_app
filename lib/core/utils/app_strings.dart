@@ -42,4 +42,7 @@ class AppStrings {
   static const String titleEmptyAppointment = "No Appointments Yet";
   static const String subTitleEmptyAppointment =
       "Book your first appointment to start managing your healthcare smoothly and stay updated with every visit you have planned.";
+
+  static const String titleEmptyNoyification = "No Notification Yet";
+  static const String subTitleEmptyNoyification="You don’t have any notifications yet. Once you schedule an appointment, all your reminders and updates will appear here so you can stay on top of your health.";
 }

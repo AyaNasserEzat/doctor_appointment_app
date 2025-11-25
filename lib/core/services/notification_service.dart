@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:doctor_appointment/core/helper/constant.dart';
 import 'package:doctor_appointment/core/routing/routes.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
@@ -66,11 +68,14 @@ class NotificationService {
       return;
     }
     tz.setLocalLocation(tz.getLocation(currentTimeZone.identifier));
-    final String payload = date;
+    final String payload = jsonEncode({
+      "apointmentDate": date,
+      "docName": docName,
+    });
     await flutterLocalNotificationsPlugin.zonedSchedule(
       1,
       "Appointment Remnider",
-      "you have apointment in $minutesBefore ",
+      "you have apointment in $minutesBefore hours",
       tz.TZDateTime.from(
         dateTime,
         tz.local,

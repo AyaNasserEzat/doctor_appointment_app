@@ -1,12 +1,17 @@
 import 'package:doctor_appointment/core/utils/app_colors.dart';
-import 'package:doctor_appointment/core/utils/app_images.dart';
-import 'package:doctor_appointment/core/utils/app_strings.dart';
 import 'package:doctor_appointment/core/utils/app_text_styles.dart';
 import 'package:flutter/material.dart';
 
-class EmptyAppoinmentBodey extends StatelessWidget {
-  const EmptyAppoinmentBodey({super.key});
-
+class EmptyBodey extends StatelessWidget {
+  const EmptyBodey({
+    super.key,
+    required this.image,
+    required this.title,
+    required this.subtitle,
+  });
+  final String image;
+  final String title;
+  final String subtitle;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -23,19 +28,15 @@ class EmptyAppoinmentBodey extends StatelessWidget {
               color: Color(0xffEAF2FF),
             ),
             child: Center(
-              child: Image.asset(
-                AppImages.emptyAppointmentImage,
-                height: 120,
-                color: AppColors.blue,
-              ),
+              child: Image.asset(image, height: 120, color: AppColors.blue),
             ),
           ),
           Text(
-            AppStrings.titleEmptyAppointment,
+            title,
             style: AppTextStyles.interBold24.copyWith(color: Colors.blue),
           ),
           Text(
-            AppStrings.subTitleEmptyAppointment,
+            subtitle,
             textAlign: TextAlign.center,
             style: AppTextStyles.interMedium16.copyWith(color: AppColors.blue),
           ),

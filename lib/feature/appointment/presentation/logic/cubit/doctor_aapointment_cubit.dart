@@ -1,5 +1,6 @@
 import 'package:doctor_appointment/core/networking/api_result.dart';
 import 'package:doctor_appointment/feature/appointment/data/models/appointment_request.dart';
+import 'package:doctor_appointment/feature/appointment/data/models/notification_model.dart';
 import 'package:doctor_appointment/feature/appointment/data/repos/doctor_appoinment_repo.dart';
 import 'package:doctor_appointment/feature/appointment/presentation/logic/cubit/doctor_aapointment_state.dart';
 import 'package:flutter/material.dart';
@@ -10,7 +11,7 @@ class DoctorAapointmentCubit extends Cubit<DoctorAapointmentState> {
     : super(DoctorAapointmentState.initial());
   final DoctorAppoinmentRepo doctorAppoinmentRepo;
   TextEditingController dateContreller = TextEditingController();
-
+  List<NotificationModel> notifications = [];
   void selectDate(DateTime date) {
     dateContreller.text = date.toString().substring(0, 10);
     emit(DoctorAapointmentState.selectDatePicked());
