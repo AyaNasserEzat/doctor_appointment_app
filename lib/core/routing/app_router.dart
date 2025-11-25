@@ -20,7 +20,6 @@ import 'package:doctor_appointment/feature/signUp/presentation/logic/cubit/signu
 import 'package:doctor_appointment/feature/signUp/presentation/screens/sign_up_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 
 class AppRouter {
   static Route? generateRout(RouteSettings settings) {
