@@ -7,7 +7,7 @@ import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 
 class NotificationScreen extends StatelessWidget {
   const NotificationScreen({super.key, required this.payload});
-final String payload;
+  final String? payload;
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -19,7 +19,7 @@ final String payload;
               Row(
                 children: [
                   Icon(Icons.arrow_back_ios),
-                  SizedBox(width: 100,),
+                  SizedBox(width: 100),
                   Text('Notifications', style: AppTextStyles.interBoldBlack18),
                 ],
               ),
@@ -40,13 +40,20 @@ final String payload;
                     ),
                   ),
                 ),
-          
-                title: Text(payload, style: AppTextStyles.interBold16),
-                subtitle: Text('xgdg', style: AppTextStyles.interMedium14),
+
+                title: Text(
+                  "Appointment Remider",
+                  style: AppTextStyles.interBold16,
+                ),
+                subtitle: Text(
+                  "don't miss appointment with Dr. Aya at ${payload ?? "null"} ",
+                  style: AppTextStyles.interMedium12,
+                ),
                 trailing: IconButton(
                   onPressed: () {
                     NotificationService.showScheduleNotification(
-                      date: 'Tuesday, November 25, 2025 6:10 PM',
+                      date: 'Tuesday, November 25, 2025 7:23 PM',
+                      docName: 'alaa',
                       minutesBefore: 1,
                     );
                   },

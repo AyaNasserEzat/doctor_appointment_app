@@ -52,6 +52,7 @@ class NotificationService {
   // ScheduleNotification
   static showScheduleNotification({
     required String date,
+    required String docName,
     required int minutesBefore,
   }) async {
     tz.initializeTimeZones();
@@ -62,14 +63,14 @@ class NotificationService {
     ).parse(date);
     // Check if in future
     if (dateTime.isBefore(DateTime.now())) {
-      print("❌ ERROR: Date must be in the future");
       return;
     }
     tz.setLocalLocation(tz.getLocation(currentTimeZone.identifier));
+    final String payload = date;
     await flutterLocalNotificationsPlugin.zonedSchedule(
       1,
       "Appointment Remnider",
-      "you have apointment at ${dateTime.month} ${dateTime.day} ${dateTime.hour}",
+      "you have apointment in $minutesBefore ",
       tz.TZDateTime.from(
         dateTime,
         tz.local,
@@ -85,7 +86,7 @@ class NotificationService {
           ),
         ),
       ),
-      payload: 'payload',
+      payload: payload,
       androidScheduleMode: AndroidScheduleMode.exactAllowWhileIdle,
     );
   }
