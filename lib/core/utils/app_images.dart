@@ -62,4 +62,9 @@ List<String> doctorsImages = [
   AppImages.doctorImage6,
   AppImages.doctorImage4,
   AppImages.doctorImage5,
+  AppImages.doctorImage5,
+  AppImages.doctorImage6,
+  AppImages.doctorImage4,
+  AppImages.doctorImage4,
+ 
 ];

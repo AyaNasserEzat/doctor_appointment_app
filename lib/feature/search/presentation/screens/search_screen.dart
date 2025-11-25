@@ -17,9 +17,7 @@ class SearchScreen extends StatelessWidget {
       child: Scaffold(
         body: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 14.0, vertical: 40),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            spacing: 10,
+          child: ListView(
             children: [
               Text("Let's Find\nYour doctor", style: AppTextStyles.interBold24),
               Builder(
@@ -35,7 +33,8 @@ class SearchScreen extends StatelessWidget {
                       },
                     ),
               ),
-              Expanded(child: SearchDoctorBlocBuilder()),
+              SizedBox(height: 15,),
+              SearchDoctorBlocBuilder(),
             ],
           ),
         ),
