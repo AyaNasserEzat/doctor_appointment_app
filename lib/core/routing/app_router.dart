@@ -73,10 +73,7 @@ class AppRouter {
       case Routes.notificationScreen:
         return MaterialPageRoute(
           builder:
-              (_) => NotificationScreen(
-                notificationResponse:
-                    settings.arguments as NotificationResponse,
-              ),
+              (_) => NotificationScreen(payload: settings.arguments as String),
         );
       case Routes.bottomNavigationBar:
         return MaterialPageRoute(builder: (_) => BottomNavBarView());

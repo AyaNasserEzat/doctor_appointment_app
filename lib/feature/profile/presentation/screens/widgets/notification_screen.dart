@@ -6,8 +6,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 
 class NotificationScreen extends StatelessWidget {
-  const NotificationScreen({super.key, required this.notificationResponse});
-final NotificationResponse notificationResponse;
+  const NotificationScreen({super.key, required this.payload});
+final String payload;
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -41,7 +41,7 @@ final NotificationResponse notificationResponse;
                   ),
                 ),
           
-                title: Text(notificationResponse.payload??"mo", style: AppTextStyles.interBold16),
+                title: Text(payload, style: AppTextStyles.interBold16),
                 subtitle: Text('xgdg', style: AppTextStyles.interMedium14),
                 trailing: IconButton(
                   onPressed: () {
