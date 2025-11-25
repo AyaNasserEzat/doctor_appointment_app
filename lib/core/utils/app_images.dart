@@ -26,14 +26,16 @@ class AppImages {
   static const String doctorImage5 = "assets/images/doctor_test5.png";
   static const String doctorImage6 = "assets/images/doctor_test6.png";
   static const String apointmentsIcon = "assets/images/apointments_icon.png";
- static const String profile = "assets/images/avatar.png";
- static const String homeIcon = "assets/images/home.png";
- static const String personalInfoIcon = "assets/images/personal_info_icon.png";
- static const String notificationIcon = "assets/images/notification_icon.png";
- static const String logout = "assets/images/logout.png";
- static const String search = "assets/images/search.png";
- //assets\images\search.png
-
+  static const String profile = "assets/images/avatar.png";
+  static const String homeIcon = "assets/images/home.png";
+  static const String personalInfoIcon = "assets/images/personal_info_icon.png";
+  static const String notificationIcon = "assets/images/notification_icon.png";
+  static const String logout = "assets/images/logout.png";
+  static const String search = "assets/images/search.png";
+  static const String emptyAppointmentImage =
+      "assets/images/no-appointment.png";
+  static const String emptyNotificationImage =
+      "assets/images/empty_notification.png";
 }
 
 List<String> specialityImages = [
@@ -58,6 +60,6 @@ List<String> doctorsImages = [
   AppImages.doctorImage4,
   AppImages.doctorImage5,
   AppImages.doctorImage6,
-   AppImages.doctorImage4,
+  AppImages.doctorImage4,
   AppImages.doctorImage5,
 ];

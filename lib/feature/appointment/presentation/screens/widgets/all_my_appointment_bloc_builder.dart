@@ -2,6 +2,7 @@ import 'package:doctor_appointment/feature/appointment/presentation/logic/cubit/
 import 'package:doctor_appointment/feature/appointment/presentation/logic/cubit/doctor_aapointment_state.dart';
 import 'package:doctor_appointment/feature/appointment/presentation/screens/widgets/appointment_list_view.dart';
 import 'package:doctor_appointment/feature/appointment/presentation/screens/widgets/appointment_listview_skeletonizer.dart';
+import 'package:doctor_appointment/feature/appointment/presentation/screens/widgets/empty_appoinment_bodey.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -24,9 +25,11 @@ class AllMyAppointmentBlocBuilder extends StatelessWidget {
           getallAppointmentError:
               (apiErrorModel) => Text(apiErrorModel.message ?? "error"),
           getallAppointmentSuccess: (getAllAppointmentsResponse) {
-            return AppointmentListView(
-              apointmentDataList: getAllAppointmentsResponse.data,
-            );
+            final list = getAllAppointmentsResponse.data;
+            if (list.isEmpty) {
+              return const EmptyAppoinmentBodey();
+            }
+            return AppointmentListView(apointmentDataList: list);
           },
           orElse: () => SizedBox.shrink(),
         );

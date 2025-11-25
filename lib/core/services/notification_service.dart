@@ -19,7 +19,6 @@ class NotificationService {
       initializationSettings,
       onDidReceiveNotificationResponse: (NotificationResponse response) {
         final String? payload = response.payload;
-
         if (payload != null) {
           navigatorKey.currentState?.pushNamed(
             Routes.notificationScreen,
@@ -35,7 +34,7 @@ class NotificationService {
       0,
       "title",
       "body",
-payload: 'paylod',
+      payload: 'paylod',
       NotificationDetails(
         android: AndroidNotificationDetails(
           'id1',
@@ -61,7 +60,11 @@ payload: 'paylod',
     final DateTime dateTime = DateFormat(
       "EEEE, MMMM d, yyyy h:mm a",
     ).parse(date);
-
+    // Check if in future
+    if (dateTime.isBefore(DateTime.now())) {
+      print("❌ ERROR: Date must be in the future");
+      return;
+    }
     tz.setLocalLocation(tz.getLocation(currentTimeZone.identifier));
     await flutterLocalNotificationsPlugin.zonedSchedule(
       1,

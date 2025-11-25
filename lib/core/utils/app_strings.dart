@@ -39,4 +39,7 @@ class AppStrings {
   //
   static const String updateProfile = "Update Profile";
   static const String profile = "Profile";
+  static const String titleEmptyAppointment = "No Appointments Yet";
+  static const String subTitleEmptyAppointment =
+      "Book your first appointment to start managing your healthcare smoothly and stay updated with every visit you have planned.";
 }
