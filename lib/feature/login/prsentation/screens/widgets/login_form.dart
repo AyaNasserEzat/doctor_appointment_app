@@ -43,9 +43,9 @@ class LoginForm extends StatelessWidget {
           Button(
             text: AppStrings.login,
             onPressed: () {
-             // if (cubit.formKey.currentState!.validate()) {
+              if (cubit.formKey.currentState!.validate()) {
                 cubit.emitLoginState();
-             // }
+              }
             },
           ),
           LoginBlocListener(),
