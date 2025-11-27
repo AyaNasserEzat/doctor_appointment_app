@@ -128,8 +128,9 @@ lib/
 
 ```bash
 # Clone project
+```sh
 git clone https://github.com/YOUR_USERNAME/doctor_appointment_app.git
-
+```
 cd doctor_appointment_app
 
 # Install packages
