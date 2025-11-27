@@ -126,16 +126,18 @@ lib/
 
 ## 🚀 Getting Started
 
-```bash
-# Clone project
-```sh
-git clone https://github.com/YOUR_USERNAME/doctor_appointment_app.git
-```
-cd doctor_appointment_app
-
-# Install packages
-flutter pub get
-
-# Run app
-flutter run
-```
+1.  Clone the repository:
+    ```sh
+    git clone https://github.com/YOUR_USERNAME/doctor_appointment_app.git
+    ```
+2.  Navigate to the project directory:
+    ```sh
+    cd doctor_appointment_app
+    ```
+3.  Install the required dependencies:
+    ```sh
+    flutter pub get
+    ```
+4.  Run the application:
+    ```sh
+    flutter run
