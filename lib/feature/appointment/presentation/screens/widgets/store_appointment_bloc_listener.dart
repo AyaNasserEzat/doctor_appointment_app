@@ -1,8 +1,7 @@
 import 'package:doctor_appointment/core/helper/extension.dart';
-import 'package:doctor_appointment/core/networking/api_error_model.dart';
 import 'package:doctor_appointment/core/services/notification_service.dart';
 import 'package:doctor_appointment/core/utils/app_colors.dart';
-import 'package:doctor_appointment/core/utils/app_text_styles.dart';
+import 'package:doctor_appointment/core/widgets/error_dialog.dart';
 import 'package:doctor_appointment/feature/appointment/presentation/logic/cubit/doctor_aapointment_cubit.dart';
 import 'package:doctor_appointment/feature/appointment/presentation/logic/cubit/doctor_aapointment_state.dart';
 import 'package:doctor_appointment/feature/appointment/presentation/screens/widgets/success_appointment_dialog.dart';
@@ -39,8 +38,7 @@ class StoreAppointmentBlocListener extends StatelessWidget {
             );
             NotificationService.showScheduleNotification(
               date: storeAppointmentResponse.data.appointmentTime,
-              // date: 'Tuesday, November 25, 2025 11:57 PM',
-              docName: storeAppointmentResponse.data.doctor.name,
+         docName: storeAppointmentResponse.data.doctor.name,
               minutesBefore: 120,
             );
           },
@@ -50,29 +48,6 @@ class StoreAppointmentBlocListener extends StatelessWidget {
         );
       },
       child: const SizedBox.shrink(),
-    );
-  }
-
-  void showErrorDialog(BuildContext context, ApiErrorModel apiErroeModel) {
-    context.pop();
-    showDialog(
-      context: context,
-      builder:
-          (context) => AlertDialog(
-            icon: const Icon(Icons.error, color: Colors.red, size: 32),
-            content: Text(
-              apiErroeModel.getAllErrorMessages(),
-              style: AppTextStyles.interBold14,
-            ),
-            actions: [
-              TextButton(
-                onPressed: () {
-                  context.pop();
-                },
-                child: Text('Got it', style: AppTextStyles.interBold14),
-              ),
-            ],
-          ),
     );
   }
 }
