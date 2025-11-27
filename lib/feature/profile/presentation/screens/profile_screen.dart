@@ -1,3 +1,4 @@
+import 'package:doctor_appointment/core/di/depensency_injection.dart';
 import 'package:doctor_appointment/core/helper/extension.dart';
 import 'package:doctor_appointment/core/routing/routes.dart';
 import 'package:doctor_appointment/core/utils/app_colors.dart';
@@ -16,59 +17,62 @@ class ProfileScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Column(
-        children: [
-          ProfileTopBar(title: AppStrings.profile),
-          SizedBox(height: 50),
-          GetProfileBlocBuilder(),
+    return BlocProvider(
+      create: (context) => ProfileCubit(getIt())..getProfile(),
+      child: Scaffold(
+        body: Column(
+          children: [
+            ProfileTopBar(title: AppStrings.profile),
+            SizedBox(height: 50),
+            GetProfileBlocBuilder(),
 
-          // Personal Info
-          ProfileOptionItem(
-            title: "personal information",
-            image: AppImages.personalInfoIcon,
-            imageColor: AppColors.blue,
-            backgroundContainer: Color(0xffEAF2FF),
-            onTap: () {
-              context.pushNamed(Routes.updateProfileScreen);
-            },
-          ),
+            // Personal Info
+            ProfileOptionItem(
+              title: "personal information",
+              image: AppImages.personalInfoIcon,
+              imageColor: AppColors.blue,
+              backgroundContainer: Color(0xffEAF2FF),
+              onTap: () {
+                context.pushNamed(Routes.updateProfileScreen);
+              },
+            ),
 
-          // Notifications
-          ProfileOptionItem(
-            title: "notifications",
-            image: AppImages.notificationIcon,
-            imageColor: AppColors.green,
-            backgroundContainer: Color(0xffE9FAEF),
-            onTap: () {
-              context.pushNamed(Routes.notificationScreen);
-            },
-          ),
+            // Notifications
+            ProfileOptionItem(
+              title: "notifications",
+              image: AppImages.notificationIcon,
+              imageColor: AppColors.green,
+              backgroundContainer: Color(0xffE9FAEF),
+              onTap: () {
+                context.pushNamed(Routes.notificationScreen);
+              },
+            ),
 
-          // My appointment
-          ProfileOptionItem(
-            title: "my appointment",
-            image: AppImages.apointmentsIcon,
-            imageColor: AppColors.gray,
-            backgroundContainer: AppColors.extraLightGray,
-            onTap: () {
-              context.pushNamed(Routes.allMyAppointmentScreen).then((_){
-                BlocProvider.of<ProfileCubit>(context).getProfile();
-              });
-            },
-          ),
+            // My appointment
+            ProfileOptionItem(
+              title: "my appointment",
+              image: AppImages.apointmentsIcon,
+              imageColor: AppColors.gray,
+              backgroundContainer: AppColors.extraLightGray,
+              onTap: () {
+                context.pushNamed(Routes.allMyAppointmentScreen).then((_) {
+                  BlocProvider.of<ProfileCubit>(context).getProfile();
+                });
+              },
+            ),
 
-          // Logout
-          ProfileOptionItem(
-            title: "logout",
-            image: AppImages.logout,
-            imageColor: AppColors.red,
-            backgroundContainer: Color(0xffFFEEEF),
-            onTap: () {
-              showLogoutDialog(context);
-            },
-          ),
-        ],
+            // Logout
+            ProfileOptionItem(
+              title: "logout",
+              image: AppImages.logout,
+              imageColor: AppColors.red,
+              backgroundContainer: Color(0xffFFEEEF),
+              onTap: () {
+                showLogoutDialog(context);
+              },
+            ),
+          ],
+        ),
       ),
     );
   }

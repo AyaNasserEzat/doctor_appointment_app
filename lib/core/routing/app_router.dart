@@ -6,7 +6,7 @@ import 'package:doctor_appointment/feature/home/data/models/specialization_respo
 import 'package:doctor_appointment/feature/appointment/presentation/screens/doctor_details_screen.dart';
 import 'package:doctor_appointment/feature/home/presentation/logic/cubit/home_cubit.dart';
 import 'package:doctor_appointment/feature/home/presentation/screens/all_specility_screen.dart';
-import 'package:doctor_appointment/feature/home/presentation/screens/botton_navegation_bart.dart';
+import 'package:doctor_appointment/feature/home/presentation/screens/botton_navegation_bar.dart';
 import 'package:doctor_appointment/feature/home/presentation/screens/home_screen.dart';
 import 'package:doctor_appointment/feature/login/prsentation/logic/cubit/login_cubit.dart';
 import 'package:doctor_appointment/feature/login/prsentation/screens/login_screen.dart';
