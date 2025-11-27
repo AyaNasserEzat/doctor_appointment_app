@@ -138,5 +138,3 @@ flutter pub get
 # Run app
 flutter run
 ```
-
-Just tell me **yes** 😊
